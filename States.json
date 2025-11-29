@@ -1,0 +1,460 @@
+{
+  "year": 2000,
+  "issues": [
+    {
+      "id": "tax_cuts",
+      "name": "Large permanent federal income-tax cuts using most of the budget surplus",
+      "scale": {
+        "-1": "state opinion leans against large tax cuts; prefers debt reduction or new spending",
+        "0": "state opinion is mixed or closely divided",
+        "1": "state opinion leans in favor of large tax cuts"
+      }
+    },
+    {
+      "id": "social_security_medicare",
+      "name": "Market-based reforms to Social Security and Medicare (such as personal investment accounts)",
+      "scale": {
+        "-1": "state opinion leans toward protecting existing guarantees and opposing major market-based changes",
+        "0": "state opinion is mixed or pragmatic about reforms",
+        "1": "state opinion leans toward major market-based reforms"
+      }
+    },
+    {
+      "id": "education_reform",
+      "name": "Stronger federal role in setting education standards and testing (No Child Left Behind-style accountability)",
+      "scale": {
+        "-1": "state opinion prefers local control and minimal federal involvement",
+        "0": "state opinion is mixed",
+        "1": "state opinion supports strong federal accountability efforts"
+      }
+    },
+    {
+      "id": "gun_control",
+      "name": "Stricter national gun-control laws (beyond existing background checks)",
+      "scale": {
+        "-1": "state opinion tends to oppose stricter gun laws and emphasize gun rights",
+        "0": "state opinion is mixed",
+        "1": "state opinion tends to support stricter gun laws"
+      }
+    },
+    {
+      "id": "environment_energy",
+      "name": "Aggressive environmental and climate protections, even at some cost to energy production",
+      "scale": {
+        "-1": "state opinion tends to prioritize energy production and low regulation",
+        "0": "state opinion is mixed",
+        "1": "state opinion tends to prioritize environmental protection"
+      }
+    }
+  ],
+  "states": {
+    "AL": {
+      "name": "Alabama",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "AK": {
+      "name": "Alaska",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "AZ": {
+      "name": "Arizona",
+      "tax_cuts": 1,
+      "social_security_medicare": 0,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": 0
+    },
+    "AR": {
+      "name": "Arkansas",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "CA": {
+      "name": "California",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "CO": {
+      "name": "Colorado",
+      "tax_cuts": 1,
+      "social_security_medicare": 0,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": 0
+    },
+    "CT": {
+      "name": "Connecticut",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "DE": {
+      "name": "Delaware",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "FL": {
+      "name": "Florida",
+      "tax_cuts": 1,
+      "social_security_medicare": -1,
+      "education_reform": 0,
+      "gun_control": 0,
+      "environment_energy": 0
+    },
+    "GA": {
+      "name": "Georgia",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "HI": {
+      "name": "Hawaii",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "ID": {
+      "name": "Idaho",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "IL": {
+      "name": "Illinois",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "IN": {
+      "name": "Indiana",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "IA": {
+      "name": "Iowa",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 0,
+      "environment_energy": 1
+    },
+    "KS": {
+      "name": "Kansas",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "KY": {
+      "name": "Kentucky",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "LA": {
+      "name": "Louisiana",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "ME": {
+      "name": "Maine",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "MD": {
+      "name": "Maryland",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "MA": {
+      "name": "Massachusetts",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "MI": {
+      "name": "Michigan",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "MN": {
+      "name": "Minnesota",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "MS": {
+      "name": "Mississippi",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "MO": {
+      "name": "Missouri",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "MT": {
+      "name": "Montana",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "NE": {
+      "name": "Nebraska",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "NV": {
+      "name": "Nevada",
+      "tax_cuts": 1,
+      "social_security_medicare": 0,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": 0
+    },
+    "NH": {
+      "name": "New Hampshire",
+      "tax_cuts": 1,
+      "social_security_medicare": 0,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": 0
+    },
+    "NJ": {
+      "name": "New Jersey",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "NM": {
+      "name": "New Mexico",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "NY": {
+      "name": "New York",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "NC": {
+      "name": "North Carolina",
+      "tax_cuts": 1,
+      "social_security_medicare": 0,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "ND": {
+      "name": "North Dakota",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "OH": {
+      "name": "Ohio",
+      "tax_cuts": 1,
+      "social_security_medicare": -1,
+      "education_reform": 0,
+      "gun_control": 0,
+      "environment_energy": -1
+    },
+    "OK": {
+      "name": "Oklahoma",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "OR": {
+      "name": "Oregon",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "PA": {
+      "name": "Pennsylvania",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "RI": {
+      "name": "Rhode Island",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "SC": {
+      "name": "South Carolina",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "SD": {
+      "name": "South Dakota",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "TN": {
+      "name": "Tennessee",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "TX": {
+      "name": "Texas",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "UT": {
+      "name": "Utah",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "VT": {
+      "name": "Vermont",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "VA": {
+      "name": "Virginia",
+      "tax_cuts": 1,
+      "social_security_medicare": 0,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "WA": {
+      "name": "Washington",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "WV": {
+      "name": "West Virginia",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 0,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "WI": {
+      "name": "Wisconsin",
+      "tax_cuts": 0,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    },
+    "WY": {
+      "name": "Wyoming",
+      "tax_cuts": 1,
+      "social_security_medicare": 1,
+      "education_reform": -1,
+      "gun_control": -1,
+      "environment_energy": -1
+    },
+    "DC": {
+      "name": "District of Columbia",
+      "tax_cuts": -1,
+      "social_security_medicare": -1,
+      "education_reform": 1,
+      "gun_control": 1,
+      "environment_energy": 1
+    }
+  }
+}
