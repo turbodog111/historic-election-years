@@ -738,7 +738,12 @@ function startGame() {
     document.getElementById('player-candidate-name').textContent = candidateData.name;
     document.getElementById('player-candidate-party').textContent = `${candidateData.party} Nominee, ${scenario.year}`;
 
+    // Initialize the map
+    initializeMap();
+
     renderStatePolling();
+    updateMapColors();
+    updateEVCounts();
     loadQuestion();
 }
 
@@ -786,6 +791,7 @@ function selectAnswer(answerIndex) {
     gameState.currentQuestion++;
 
     renderStatePolling();
+    updateMapColors();
     updateEVCounts();
     loadQuestion();
 }
@@ -839,23 +845,19 @@ function renderStatePolling() {
 
     sortedStates.forEach(([state, data]) => {
         const margin = data.margin;
+        const pct = marginToPercentages(margin);
         let stateClass = 'tossup';
         let marginClass = 'tossup';
-        let marginText = 'Tossup';
 
         if (margin > 5) {
             stateClass = 'dem';
             marginClass = 'dem';
-            marginText = `D+${Math.round(margin)}`;
         } else if (margin < -5) {
             stateClass = 'rep';
             marginClass = 'rep';
-            marginText = `R+${Math.round(Math.abs(margin))}`;
         } else if (margin > 0) {
-            marginText = `D+${Math.round(margin)}`;
             marginClass = 'dem';
         } else if (margin < 0) {
-            marginText = `R+${Math.round(Math.abs(margin))}`;
             marginClass = 'rep';
         }
 
@@ -864,7 +866,7 @@ function renderStatePolling() {
         row.innerHTML = `
             <span class="state-name">${state}</span>
             <span class="state-ev">${data.ev}</span>
-            <span class="state-margin ${marginClass}">${marginText}</span>
+            <span class="state-margin ${marginClass}">${pct.dem}% - ${pct.rep}%</span>
         `;
         container.appendChild(row);
     });
