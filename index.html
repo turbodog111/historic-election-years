@@ -368,7 +368,22 @@
 
         .stat-value.democrat { color: #63b3ed; }
         .stat-value.republican { color: #fc8181; }
-        .stat-value.tossup { color: #f6e05e; }
+        .stat-value.tossup { color: #a0aec0; }
+
+        /* Winning/Leading indicators */
+        .stat-value.winning {
+            color: #48bb78;
+            text-shadow: 0 0 10px rgba(72, 187, 120, 0.5);
+        }
+
+        .stat-value.losing {
+            color: #a0aec0;
+            opacity: 0.7;
+        }
+
+        .stat-value.leading {
+            font-weight: bold;
+        }
 
         .stat-label {
             font-size: 0.8rem;
@@ -418,6 +433,25 @@
             font-size: 1.15rem;
             line-height: 1.7;
             margin-bottom: 25px;
+        }
+
+        .question-context {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #a0aec0;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(74, 85, 104, 0.3);
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+            font-style: italic;
+        }
+
+        .question-prompt {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #f7fafc;
+            font-weight: 500;
         }
 
         .answers {
@@ -556,11 +590,14 @@
 
         .state-row .state-margin.dem { color: #63b3ed; }
         .state-row .state-margin.rep { color: #fc8181; }
-        .state-row .state-margin.tossup { color: #f6e05e; }
 
-        .state-row.dem { border-left: 3px solid #3182ce; }
-        .state-row.rep { border-left: 3px solid #e53e3e; }
-        .state-row.tossup { border-left: 3px solid #d69e2e; }
+        /* State row classifications - no more tossups */
+        .state-row.safe-dem { border-left: 3px solid #1e40af; background: rgba(30, 64, 175, 0.15); }
+        .state-row.lean-dem { border-left: 3px solid #3b82f6; background: rgba(59, 130, 246, 0.1); }
+        .state-row.tilt-dem { border-left: 3px solid #93c5fd; background: rgba(147, 197, 253, 0.08); }
+        .state-row.tilt-rep { border-left: 3px solid #fca5a5; background: rgba(252, 165, 165, 0.08); }
+        .state-row.lean-rep { border-left: 3px solid #ef4444; background: rgba(239, 68, 68, 0.1); }
+        .state-row.safe-rep { border-left: 3px solid #991b1b; background: rgba(153, 27, 27, 0.15); }
 
         /* Map Section */
         .map-section {
@@ -865,7 +902,7 @@
                 <button class="menu-btn" onclick="showScreen('update-log')">Update Log</button>
             </div>
 
-            <p class="game-version">Version 0.3.0 - 2000 Election</p>
+            <p class="game-version">Version 0.4.0 - 2000 Election</p>
         </div>
 
         <!-- Update Log -->
@@ -874,6 +911,20 @@
                 <div class="update-log-header">
                     <h2>Update Log</h2>
                     <button class="back-btn" onclick="showScreen('main-menu')">Back to Menu</button>
+                </div>
+
+                <div class="update-entry">
+                    <h3>Version 0.4.0</h3>
+                    <div class="update-date">November 2024</div>
+                    <ul>
+                        <li>Added state-specific issue effects based on voter priorities</li>
+                        <li>Integrated question contexts from Questions_Contexts.json</li>
+                        <li>Removed tossup category - all states now assigned to current leader</li>
+                        <li>Added granular state classifications: Safe, Lean, and Tilt</li>
+                        <li>Close states (under 3%) shown with lighter shading</li>
+                        <li class="fix">Increased difficulty - effects now depend on state issue leanings</li>
+                        <li>Redesigned EV display with 270-to-win marker</li>
+                    </ul>
                 </div>
 
                 <div class="update-entry">
@@ -952,15 +1003,19 @@
                 <div class="game-stats">
                     <div class="stat">
                         <div class="stat-value democrat" id="dem-ev">0</div>
-                        <div class="stat-label">Dem EV</div>
+                        <div class="stat-label">Gore EV</div>
                     </div>
-                    <div class="stat">
-                        <div class="stat-value tossup" id="tossup-ev">538</div>
-                        <div class="stat-label">Tossup</div>
+                    <div class="stat ev-divider">
+                        <div class="stat-value" style="color: #f6e05e;">270</div>
+                        <div class="stat-label">to win</div>
                     </div>
                     <div class="stat">
                         <div class="stat-value republican" id="rep-ev">0</div>
-                        <div class="stat-label">Rep EV</div>
+                        <div class="stat-label">Bush EV</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value tossup" id="tossup-ev">0</div>
+                        <div class="stat-label">Close</div>
                     </div>
                     <div class="stat">
                         <div class="stat-value" id="question-progress">1/25</div>
