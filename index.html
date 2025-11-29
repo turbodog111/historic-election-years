@@ -1,1 +1,598 @@
-Test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historic Campaign Trail</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #eee;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #4a5568;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #f7fafc;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            color: #a0aec0;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Start Screen */
+        #start-screen {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        #start-screen h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .scenario-select {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .scenario-card {
+            background: linear-gradient(145deg, #2d3748, #1a202c);
+            border: 2px solid #4a5568;
+            border-radius: 10px;
+            padding: 30px;
+            width: 280px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .scenario-card.selected {
+            border-color: #48bb78;
+            box-shadow: 0 0 20px rgba(72, 187, 120, 0.4);
+        }
+
+        .scenario-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #f7fafc;
+        }
+
+        .scenario-card p {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .candidate-select {
+            margin: 30px 0;
+        }
+
+        .candidate-select h3 {
+            margin-bottom: 20px;
+        }
+
+        .candidates {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .candidate-card {
+            background: linear-gradient(145deg, #2d3748, #1a202c);
+            border: 3px solid #4a5568;
+            border-radius: 10px;
+            padding: 25px;
+            width: 220px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .candidate-card:hover {
+            transform: scale(1.05);
+        }
+
+        .candidate-card.democrat {
+            border-color: #3182ce;
+        }
+
+        .candidate-card.democrat:hover, .candidate-card.democrat.selected {
+            box-shadow: 0 0 30px rgba(49, 130, 206, 0.5);
+        }
+
+        .candidate-card.republican {
+            border-color: #e53e3e;
+        }
+
+        .candidate-card.republican:hover, .candidate-card.republican.selected {
+            box-shadow: 0 0 30px rgba(229, 62, 62, 0.5);
+        }
+
+        .candidate-card.selected {
+            transform: scale(1.05);
+        }
+
+        .candidate-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .candidate-card .party {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .candidate-card.democrat .party { color: #63b3ed; }
+        .candidate-card.republican .party { color: #fc8181; }
+
+        .candidate-card .info {
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
+
+        .btn {
+            background: linear-gradient(145deg, #667eea, #5a67d8);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Game Screen */
+        #game-screen {
+            display: none;
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2d3748;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .game-header .candidate-info h3 {
+            font-size: 1.2rem;
+        }
+
+        .game-header .candidate-info p {
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        .game-stats {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .stat-value.democrat { color: #63b3ed; }
+        .stat-value.republican { color: #fc8181; }
+        .stat-value.tossup { color: #f6e05e; }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #a0aec0;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .question-panel {
+            background: #2d3748;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #4a5568;
+        }
+
+        .question-number {
+            font-size: 0.9rem;
+            color: #a0aec0;
+        }
+
+        .question-topic {
+            background: #4a5568;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .answers {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .answer-btn {
+            background: linear-gradient(145deg, #3d4a5c, #2d3748);
+            border: 2px solid #4a5568;
+            color: #eee;
+            padding: 18px 20px;
+            text-align: left;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .answer-btn:hover {
+            border-color: #667eea;
+            background: linear-gradient(145deg, #4a5568, #3d4a5c);
+        }
+
+        .answer-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Polling Panel */
+        .polling-panel {
+            background: #2d3748;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .polling-panel h3 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #4a5568;
+        }
+
+        .state-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .state-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: #1a202c;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .state-row .state-name {
+            width: 120px;
+        }
+
+        .state-row .state-ev {
+            width: 35px;
+            text-align: center;
+            color: #a0aec0;
+        }
+
+        .state-row .state-margin {
+            width: 70px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .state-row .state-margin.dem { color: #63b3ed; }
+        .state-row .state-margin.rep { color: #fc8181; }
+        .state-row .state-margin.tossup { color: #f6e05e; }
+
+        .state-row.dem { border-left: 3px solid #3182ce; }
+        .state-row.rep { border-left: 3px solid #e53e3e; }
+        .state-row.tossup { border-left: 3px solid #d69e2e; }
+
+        /* Results Screen */
+        #results-screen {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .results-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .results-header.win h2 { color: #48bb78; }
+        .results-header.lose h2 { color: #fc8181; }
+
+        .results-header p {
+            font-size: 1.2rem;
+            color: #a0aec0;
+            margin-bottom: 40px;
+        }
+
+        .ev-display {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .ev-box {
+            padding: 30px 50px;
+            border-radius: 15px;
+            min-width: 200px;
+        }
+
+        .ev-box.democrat {
+            background: linear-gradient(145deg, #2b6cb0, #1a365d);
+            border: 3px solid #3182ce;
+        }
+
+        .ev-box.republican {
+            background: linear-gradient(145deg, #c53030, #742a2a);
+            border: 3px solid #e53e3e;
+        }
+
+        .ev-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .ev-box .ev-count {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .ev-box .ev-label {
+            font-size: 0.9rem;
+            color: #a0aec0;
+        }
+
+        .results-map {
+            margin: 30px 0;
+        }
+
+        .results-map h3 {
+            margin-bottom: 20px;
+        }
+
+        .state-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .state-result {
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .state-result.dem {
+            background: rgba(49, 130, 206, 0.3);
+            border-left: 3px solid #3182ce;
+        }
+
+        .state-result.rep {
+            background: rgba(229, 62, 62, 0.3);
+            border-left: 3px solid #e53e3e;
+        }
+
+        .state-result span {
+            float: right;
+            color: #a0aec0;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a202c;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5a6578;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Historic Campaign Trail</h1>
+            <p>Navigate pivotal moments in American electoral history</p>
+        </header>
+
+        <!-- Start Screen -->
+        <div id="start-screen">
+            <h2>Select Your Campaign</h2>
+
+            <div class="scenario-select">
+                <div class="scenario-card selected" data-year="2000">
+                    <h3>2000</h3>
+                    <p>Bush vs. Gore - A razor-thin election decided by hanging chads. Navigate debates over the surplus, Social Security, and America's role in the world.</p>
+                </div>
+                <!-- More scenarios can be added here -->
+            </div>
+
+            <div class="candidate-select">
+                <h3>Choose Your Candidate</h3>
+                <div class="candidates" id="candidate-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+            <button class="btn" id="start-btn" disabled>Begin Campaign</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen">
+            <div class="game-header">
+                <div class="candidate-info">
+                    <h3 id="player-candidate-name"></h3>
+                    <p id="player-candidate-party"></p>
+                </div>
+                <div class="game-stats">
+                    <div class="stat">
+                        <div class="stat-value democrat" id="dem-ev">0</div>
+                        <div class="stat-label">Dem EV</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value tossup" id="tossup-ev">538</div>
+                        <div class="stat-label">Tossup</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value republican" id="rep-ev">0</div>
+                        <div class="stat-label">Rep EV</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="question-progress">1/25</div>
+                        <div class="stat-label">Question</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="question-panel">
+                    <div class="question-header">
+                        <span class="question-number" id="q-number">Question 1</span>
+                        <span class="question-topic" id="q-topic">Economy</span>
+                    </div>
+                    <div class="question-text" id="q-text">
+                        Loading question...
+                    </div>
+                    <div class="answers" id="answers">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="polling-panel">
+                    <h3>State Polling</h3>
+                    <div class="state-list" id="state-list">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen">
+            <div class="results-header" id="results-header">
+                <h2 id="results-title">Election Results</h2>
+                <p id="results-subtitle"></p>
+            </div>
+
+            <div class="ev-display">
+                <div class="ev-box democrat">
+                    <h3 id="dem-candidate-name">Democrat</h3>
+                    <div class="ev-count" id="final-dem-ev">0</div>
+                    <div class="ev-label">Electoral Votes</div>
+                </div>
+                <div class="ev-box republican">
+                    <h3 id="rep-candidate-name">Republican</h3>
+                    <div class="ev-count" id="final-rep-ev">0</div>
+                    <div class="ev-label">Electoral Votes</div>
+                </div>
+            </div>
+
+            <div class="results-map">
+                <h3>State Results</h3>
+                <div class="state-results" id="state-results">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+            <button class="btn" onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
