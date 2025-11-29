@@ -1,0 +1,2351 @@
+{
+  "year": 2000,
+  "candidates": [
+    {
+      "id": "bush",
+      "name": "George W. Bush",
+      "party": "Republican",
+      "questions": [
+        {
+          "id": "bush_q01",
+          "order": 1,
+          "prompt": "You’re launching your presidential campaign. How strongly do you brand yourself as a 'compassionate conservative'?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Make 'compassionate conservatism' the central theme of your campaign.",
+              "advisorRating": "good",
+              "advisorFeedback": "This softens the GOP image and matches what resonated in 2000 with many swing voters."
+            },
+            {
+              "id": "B",
+              "text": "Run as a traditional, hard-edged tax-cut conservative and skip the 'compassion' language.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You’ll fire up the base but risk losing moderates who liked the softer tone you actually used."
+            },
+            {
+              "id": "C",
+              "text": "Avoid any overarching brand; just talk about generic leadership and values.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Without a clear brand you look bland and forgettable in a crowded media environment."
+            },
+            {
+              "id": "D",
+              "text": "Brand yourself as a centrist willing to criticize congressional Republicans.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Might attract independents, but it angers party leaders you need for money and organization."
+            }
+          ]
+        },
+        {
+          "id": "bush_q02",
+          "order": 2,
+          "prompt": "John McCain’s 'Straight Talk Express' is surging in New Hampshire. How do you respond?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Open your own campaign up: long unscripted Q&A sessions with reporters.",
+              "advisorRating": "good",
+              "advisorFeedback": "You blunt McCain’s authenticity edge and show you can handle tough questions."
+            },
+            {
+              "id": "B",
+              "text": "Stay tightly scripted and rely on TV ads rather than press access.",
+              "advisorRating": "bad",
+              "advisorFeedback": "In retail-heavy New Hampshire, this makes you look stiff and over-handled compared to McCain."
+            },
+            {
+              "id": "C",
+              "text": "Hit McCain with negative ads on his record and temperament.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may slow his momentum, but you risk backlash and damage to your image for the general election."
+            },
+            {
+              "id": "D",
+              "text": "Publicly praise McCain and avoid any contrast, hoping his surge fizzles on its own.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You surrender the message battlefield and could let his narrative define you as the stale establishment choice."
+            }
+          ]
+        },
+        {
+          "id": "bush_q03",
+          "order": 3,
+          "prompt": "After losing New Hampshire, you head into South Carolina where the campaign is turning ugly. How negative do you go?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Run sharp contrast ads, but disavow and distance yourself from shadowy smear operations.",
+              "advisorRating": "good",
+              "advisorFeedback": "You fight hard on policy frames while trying to avoid being personally tied to the dirtiest tactics."
+            },
+            {
+              "id": "B",
+              "text": "Embrace all negative tactics, including whisper campaigns against McCain.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You might win the primary decisively, but the ethical baggage will follow you for years."
+            },
+            {
+              "id": "C",
+              "text": "Stay entirely positive and refuse to counterattack McCain at all.",
+              "advisorRating": "bad",
+              "advisorFeedback": "In a knife fight primary, unilateral positivity risks losing the nomination outright."
+            },
+            {
+              "id": "D",
+              "text": "Pull resources out of South Carolina and refocus on later states.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Conceding South Carolina concedes conservative momentum and makes you look weak."
+            }
+          ]
+        },
+        {
+          "id": "bush_q04",
+          "order": 4,
+          "prompt": "Projected budget surpluses give you room to propose tax cuts. How ambitious is your tax plan?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Large, across-the-board tax cut similar to what you actually proposed.",
+              "advisorRating": "good",
+              "advisorFeedback": "It gives you a simple message and thrills the base, though Democrats will call it tilted to the rich."
+            },
+            {
+              "id": "B",
+              "text": "Smaller, middle-class-focused tax cut that trims benefits for the wealthy.",
+              "advisorRating": "good",
+              "advisorFeedback": "You keep a tax-cut message while blunting some of the 'tax cuts for the rich' attacks."
+            },
+            {
+              "id": "C",
+              "text": "No tax cuts; promise to devote surpluses only to debt reduction and entitlements.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You walk away from a core Republican issue and blur your contrast with Gore."
+            },
+            {
+              "id": "D",
+              "text": "Promise massive tax cuts plus big new spending on everything voters like.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You invite charges of fiscal irresponsibility and numbers that don’t add up."
+            }
+          ]
+        },
+        {
+          "id": "bush_q05",
+          "order": 5,
+          "prompt": "Education is a centerpiece of your 'compassionate conservatism.' What federal reform do you emphasize?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "A major accountability law with annual testing and consequences for failing schools.",
+              "advisorRating": "good",
+              "advisorFeedback": "This anticipates No Child Left Behind and reassures suburban parents you care about public schools."
+            },
+            {
+              "id": "B",
+              "text": "School vouchers and privatization as the main pillar.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "It energizes conservatives but worries many swing voters about undermining public education."
+            },
+            {
+              "id": "C",
+              "text": "Argue education is purely a state issue and the federal government should step back.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You undercut one of your strongest general-election themes and look disengaged."
+            },
+            {
+              "id": "D",
+              "text": "Keep education vague and move on quickly in speeches.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You squander an issue where you could outflank Gore on reform language."
+            }
+          ]
+        },
+        {
+          "id": "bush_q06",
+          "order": 6,
+          "prompt": "You’re considering a major proposal to support faith-based organizations delivering social services. How bold are you?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Push a robust faith-based initiative, touting partnerships with churches and charities.",
+              "advisorRating": "good",
+              "advisorFeedback": "It reinforces your compassionate brand and appeals to religious voters without massive cost."
+            },
+            {
+              "id": "B",
+              "text": "Float the idea quietly but keep details vague until after the election.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You avoid scrutiny but miss a chance to define yourself positively."
+            },
+            {
+              "id": "C",
+              "text": "Drop the idea to avoid any church–state controversies.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You reduce legal headaches, but you also lose a signature initiative."
+            },
+            {
+              "id": "D",
+              "text": "Propose that religious groups get direct, no-strings federal funding with minimal oversight.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You invite constitutional challenges and scare secular and minority voters."
+            }
+          ]
+        },
+        {
+          "id": "bush_q07",
+          "order": 7,
+          "prompt": "Columbine is fresh in voters’ minds. What do you emphasize on gun policy?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Focus on enforcing existing laws and punishing gun crimes more harshly.",
+              "advisorRating": "good",
+              "advisorFeedback": "This fits your party’s message while recognizing public concern about violence."
+            },
+            {
+              "id": "B",
+              "text": "Support significant new gun-control laws like universal background checks and licensing.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You could gain suburban moderates but risk an open revolt from your base."
+            },
+            {
+              "id": "C",
+              "text": "Oppose almost any gun restrictions and speak at high-profile gun-rights rallies.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You shore up gun owners but may look extreme to swing voters."
+            },
+            {
+              "id": "D",
+              "text": "Avoid the gun issue whenever possible and give only platitudes.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Dodging a salient issue can make you seem evasive and weak."
+            }
+          ]
+        },
+        {
+          "id": "bush_q08",
+          "order": 8,
+          "prompt": "Environmentalists press you on global warming and the Kyoto Protocol. What’s your stance?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Reject Kyoto and emphasize domestic energy production and deregulation.",
+              "advisorRating": "good",
+              "advisorFeedback": "You line up with business interests and many voters worried about energy prices, though greens will attack."
+            },
+            {
+              "id": "B",
+              "text": "Pledge to renegotiate an international climate pact but refuse to sign Kyoto as-is.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You sound more open but must be careful not to alienate your base or industry donors."
+            },
+            {
+              "id": "C",
+              "text": "Support Kyoto-style limits and openly break with your party’s skepticism.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may win some independents but cause serious internal revolt."
+            },
+            {
+              "id": "D",
+              "text": "Treat environmental questions as minor and rarely mention them.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You leave Gore the chance to define you as anti-environment without rebuttal."
+            }
+          ]
+        },
+        {
+          "id": "bush_q09",
+          "order": 9,
+          "prompt": "You want to broaden the GOP’s appeal beyond its traditional base. Which outreach do you prioritize?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Invest heavily in Latino outreach, especially in states like Florida and New Mexico.",
+              "advisorRating": "good",
+              "advisorFeedback": "You build on your Texas experience and improve your margins in key states."
+            },
+            {
+              "id": "B",
+              "text": "Focus almost entirely on evangelical Christians and rural whites.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You lock down your base but risk losing the suburbs where the election is often decided."
+            },
+            {
+              "id": "C",
+              "text": "Target upscale, socially moderate suburbanites and soft Democrats.",
+              "advisorRating": "good",
+              "advisorFeedback": "This can be decisive in states like Florida, Ohio, and Pennsylvania if messaged well."
+            },
+            {
+              "id": "D",
+              "text": "Avoid targeted outreach; run one generic national message for everyone.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You squander modern microtargeting advantages in a close race."
+            }
+          ]
+        },
+        {
+          "id": "bush_q10",
+          "order": 10,
+          "prompt": "You must choose a running mate. How do you handle the VP selection?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Pick Dick Cheney, emphasizing experience and seriousness on foreign policy.",
+              "advisorRating": "good",
+              "advisorFeedback": "You gain gravitas and governing depth, though critics will attack his ties to oil and Washington."
+            },
+            {
+              "id": "B",
+              "text": "Choose a younger, moderate governor to double down on 'new Republican' imagery.",
+              "advisorRating": "good",
+              "advisorFeedback": "You highlight generational change and can broaden your appeal, but you sacrifice Cheney’s experience."
+            },
+            {
+              "id": "C",
+              "text": "Pick a hard-right ideologue to reassure skeptical conservatives.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "The base will cheer, but moderates may bolt in key swing states."
+            },
+            {
+              "id": "D",
+              "text": "Drag out the VP process and leak multiple names to build drama.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You waste valuable time that could be spent defining a strong ticket."
+            }
+          ]
+        },
+        {
+          "id": "bush_q11",
+          "order": 11,
+          "prompt": "In debates you’re perceived as more personable but less detailed than Gore. How do you approach your debate style?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Lean into a relaxed, folksy style with clear but simple talking points.",
+              "advisorRating": "good",
+              "advisorFeedback": "You contrast well with Gore’s technocratic style and come across as likable and steady."
+            },
+            {
+              "id": "B",
+              "text": "Aim for maximum policy detail to prove you’re just as wonky as Gore.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may look more serious but risk seeming stiff and losing your natural advantage."
+            },
+            {
+              "id": "C",
+              "text": "Adopt an aggressive tone and interrupt frequently to keep Gore off balance.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Overdoing aggression clashes with your 'nice guy' persona and can alienate viewers."
+            },
+            {
+              "id": "D",
+              "text": "Keep answers extremely short, even if you seem vague.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You avoid gaffes but give Gore openings to claim you don’t understand the issues."
+            }
+          ]
+        },
+        {
+          "id": "bush_q12",
+          "order": 12,
+          "prompt": "You’re pitched on partially privatizing Social Security with personal investment accounts. How do you frame this?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Publicly support personal accounts as a way for younger workers to build wealth.",
+              "advisorRating": "good",
+              "advisorFeedback": "You highlight reform and ownership, but must constantly reassure seniors their benefits are safe."
+            },
+            {
+              "id": "B",
+              "text": "Keep privatization ideas quiet and only hint at them in coded language.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You dodge attacks for now, but risk looking deceptive later."
+            },
+            {
+              "id": "C",
+              "text": "Reject any talk of personal accounts and promise no structural change.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You reduce attacks, but also abandon one of your key policy differentiators."
+            },
+            {
+              "id": "D",
+              "text": "Propose immediate, sweeping privatization of most Social Security funds.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That’s politically explosive and will terrify risk-averse seniors."
+            }
+          ]
+        },
+        {
+          "id": "bush_q13",
+          "order": 13,
+          "prompt": "Late in the campaign, news breaks of your old DUI arrest from the 1970s. What’s your response?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Acknowledge it immediately, express regret, and insist you’ve changed.",
+              "advisorRating": "good",
+              "advisorFeedback": "You take responsibility and minimize the story’s lifespan, though you may lose some swing voters."
+            },
+            {
+              "id": "B",
+              "text": "Downplay it as a 'youthful indiscretion' and refuse to discuss it further.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may look evasive if you don’t signal genuine contrition."
+            },
+            {
+              "id": "C",
+              "text": "Attack the timing as dirty politics and blame the other side for a smear.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "It can rally your base but risks turning the story into a multi-day fight over your character."
+            },
+            {
+              "id": "D",
+              "text": "Ignore the report entirely and hope the media moves on.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Silence lets opponents and reporters fill the void for you."
+            }
+          ]
+        },
+        {
+          "id": "bush_q14",
+          "order": 14,
+          "prompt": "How do you use your father, former President George H. W. Bush, on the campaign trail?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Deploy him selectively in states where he’s popular, but keep your own identity front and center.",
+              "advisorRating": "good",
+              "advisorFeedback": "You gain credibility without looking like a pure dynasty candidacy."
+            },
+            {
+              "id": "B",
+              "text": "Campaign with him constantly and pitch a 'Bush family restoration.'",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may help with nostalgic Republicans but feed concerns that you’re riding on his coattails."
+            },
+            {
+              "id": "C",
+              "text": "Avoid public appearances with him to emphasize your independence.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You underline your own brand but waste a powerful surrogate."
+            },
+            {
+              "id": "D",
+              "text": "Make him your main messenger on almost all policy issues.",
+              "advisorRating": "bad",
+              "advisorFeedback": "It undermines the idea that you’re ready to be president yourself."
+            }
+          ]
+        },
+        {
+          "id": "bush_q15",
+          "order": 15,
+          "prompt": "At the GOP convention, what tone do you set in your acceptance speech?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Emphasize unity, bipartisanship, and a more humane, less harsh Republican Party.",
+              "advisorRating": "good",
+              "advisorFeedback": "You distinguish yourself from the Gingrich-era image and appeal to independents."
+            },
+            {
+              "id": "B",
+              "text": "Deliver a fiery ideological speech attacking Democrats as dangerous radicals.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Red meat thrills the base but may repel swing voters watching in prime time."
+            },
+            {
+              "id": "C",
+              "text": "Focus heavily on cultural wedge issues like flag-burning and school prayer.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may gain some voters, but this can look dated and divisive in 2000."
+            },
+            {
+              "id": "D",
+              "text": "Give a vague, low-energy speech with few memorable lines.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Conventions are your biggest free ad; wasting it is a serious error."
+            }
+          ]
+        },
+        {
+          "id": "bush_q16",
+          "order": 16,
+          "prompt": "Gore hammers you on prescription drug coverage for seniors. How do you answer?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Propose adding a prescription drug benefit through Medicare with a private-plan role.",
+              "advisorRating": "good",
+              "advisorFeedback": "You reassure seniors and reduce a key Democratic edge while framing it in market terms."
+            },
+            {
+              "id": "B",
+              "text": "Oppose new benefits and focus on tax cuts, leaving seniors to private insurance.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You risk looking indifferent to a major senior concern."
+            },
+            {
+              "id": "C",
+              "text": "Suggest block grants to states for senior drug programs instead of a federal benefit.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Technically plausible but harder to explain than Gore’s straightforward promise."
+            },
+            {
+              "id": "D",
+              "text": "Promise everything—large tax cuts plus a generous new drug benefit—with few details.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Voters may like the sound of it but doubt your math."
+            }
+          ]
+        },
+        {
+          "id": "bush_q17",
+          "order": 17,
+          "prompt": "Ralph Nader’s Green run threatens Gore on the left. How, if at all, do you respond to his campaign?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Stay neutral in public but quietly welcome Nader’s presence as a spoiler for Gore.",
+              "advisorRating": "good",
+              "advisorFeedback": "You reap the benefits of a split opposition without appearing to meddle."
+            },
+            {
+              "id": "B",
+              "text": "Run TV ads praising Nader as the 'true progressive' to peel votes from Gore.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "It might work tactically but could be seen as cynical and backfire if exposed."
+            },
+            {
+              "id": "C",
+              "text": "Attack Nader as irresponsible for risking a Bush victory.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You’re arguing that your own win would be disastrous—a strange message."
+            },
+            {
+              "id": "D",
+              "text": "Publicly call for Nader to be included in the debates.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You look open and fair, but his presence could complicate the debates unpredictably."
+            }
+          ]
+        },
+        {
+          "id": "bush_q18",
+          "order": 18,
+          "prompt": "It’s October. Which electoral map strategy do you prioritize?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Go all-in on Florida as the central battleground.",
+              "advisorRating": "good",
+              "advisorFeedback": "History suggests Florida is indeed pivotal; heavy investment there can win the presidency."
+            },
+            {
+              "id": "B",
+              "text": "Focus on securing Ohio and the industrial Midwest instead.",
+              "advisorRating": "good",
+              "advisorFeedback": "Those states are also crucial and give you multiple paths to 270."
+            },
+            {
+              "id": "C",
+              "text": "Spend heavily in traditionally Democratic New York and California to try for an upset.",
+              "advisorRating": "bad",
+              "advisorFeedback": "These are extremely unlikely pickups and a poor use of limited resources."
+            },
+            {
+              "id": "D",
+              "text": "Distribute resources evenly across all competitive states.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You maintain a broad front but lack knockout strength anywhere."
+            }
+          ]
+        },
+        {
+          "id": "bush_q19",
+          "order": 19,
+          "prompt": "Election Day approaches. Where do you focus get-out-the-vote efforts?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Evangelical churches and rural counties in key states.",
+              "advisorRating": "good",
+              "advisorFeedback": "These are your most reliable supporters; maximizing their turnout is critical."
+            },
+            {
+              "id": "B",
+              "text": "Suburban swing voters with last-minute persuasion calls.",
+              "advisorRating": "good",
+              "advisorFeedback": "Late contact can nudge undecided moderates in close districts."
+            },
+            {
+              "id": "C",
+              "text": "Young voters on college campuses.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You might pick up some support, but they lean against you and turn out less reliably."
+            },
+            {
+              "id": "D",
+              "text": "Spread GOTV thinly across the entire country.",
+              "advisorRating": "bad",
+              "advisorFeedback": "In a razor-thin race you must focus on truly competitive states."
+            }
+          ]
+        },
+        {
+          "id": "bush_q20",
+          "order": 20,
+          "prompt": "On election night, networks first call Florida for Gore, then move it back to 'too close to call.' Later, they call it for you. Your team warns the numbers are still extremely tight. What do you say?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Declare victory publicly based on the network calls.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You shape the narrative, but you risk being undermined if the count shifts."
+            },
+            {
+              "id": "B",
+              "text": "Say the race isn’t over and urge patience while votes are counted.",
+              "advisorRating": "good",
+              "advisorFeedback": "You appear cautious and responsible, preserving your image if recounts follow."
+            },
+            {
+              "id": "C",
+              "text": "Privately celebrate and pressure Gore to concede while staying vague in public.",
+              "advisorRating": "good",
+              "advisorFeedback": "You keep leverage without overcommitting in public statements."
+            },
+            {
+              "id": "D",
+              "text": "Boast of a 'historic landslide' despite the uncertainty.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Hyperbole makes you look unserious if the margin turns out razor-thin."
+            }
+          ]
+        },
+        {
+          "id": "bush_q21",
+          "order": 21,
+          "prompt": "Florida’s margin is within a few hundred votes. Gore’s team pushes for recounts. What’s your legal strategy?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Aggressively challenge manual recounts as unconstitutional and subjective.",
+              "advisorRating": "good",
+              "advisorFeedback": "This mirrors your actual strategy and maximizes your chances of freezing a slim lead."
+            },
+            {
+              "id": "B",
+              "text": "Accept a limited manual recount but insist on strict, uniform standards.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You look fairer, but you risk losing if new votes are found for Gore."
+            },
+            {
+              "id": "C",
+              "text": "Welcome broad recounts to demonstrate confidence, without major legal challenges.",
+              "advisorRating": "bad",
+              "advisorFeedback": "In a margin this small, that generosity could cost you the presidency."
+            },
+            {
+              "id": "D",
+              "text": "Call for a brand-new election in Florida to reset the contest.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Courts are unlikely to grant it, and you’d appear to be throwing the system into chaos."
+            }
+          ]
+        },
+        {
+          "id": "bush_q22",
+          "order": 22,
+          "prompt": "As the recount battle rages, how do you strike your public tone?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Use measured language about fairness and the rule of law, avoiding inflammatory remarks.",
+              "advisorRating": "good",
+              "advisorFeedback": "You sound presidential and help maintain public trust in the process."
+            },
+            {
+              "id": "B",
+              "text": "Accuse Democrats loudly of trying to 'steal' the election.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You energize your base but risk delegitimizing your own eventual victory."
+            },
+            {
+              "id": "C",
+              "text": "Stay mostly out of sight and let lawyers and surrogates handle the messaging.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You avoid missteps but risk seeming absent in a national crisis."
+            },
+            {
+              "id": "D",
+              "text": "Hold mass rallies implying that if recounts continue, unrest might follow.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Hinting at unrest is dangerous and could permanently stain your reputation."
+            }
+          ]
+        },
+        {
+          "id": "bush_q23",
+          "order": 23,
+          "prompt": "The Supreme Court stops the recount in Bush v. Gore, effectively handing you Florida. How do you respond publicly?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Express gratitude for the process, stress respect for the Court, and call for unity.",
+              "advisorRating": "good",
+              "advisorFeedback": "You underline legitimacy and appear gracious in victory."
+            },
+            {
+              "id": "B",
+              "text": "Treat the decision as vindication and boast about having 'won fair and square.'",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You’ll please your supporters but may alienate many who saw the result as murky."
+            },
+            {
+              "id": "C",
+              "text": "Say little about the Court and focus strictly on policy plans.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You avoid relitigating the case but miss a chance to reassure skeptics."
+            },
+            {
+              "id": "D",
+              "text": "Attack the Court for not going far enough and demand new electoral reforms immediately.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Attacking the very institution that just effectively made you president is incoherent."
+            }
+          ]
+        },
+        {
+          "id": "bush_q24",
+          "order": 24,
+          "prompt": "As president-elect, how do you shape your first cabinet to follow this disputed election?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Choose a mix of experienced Republican insiders and a few bipartisan figures.",
+              "advisorRating": "good",
+              "advisorFeedback": "You reassure markets and institutions while nodding to the need for unity."
+            },
+            {
+              "id": "B",
+              "text": "Fill the cabinet almost entirely with loyal ideological conservatives.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You lock in your policy agenda, but critics will say you’re ignoring the narrowness of your win."
+            },
+            {
+              "id": "C",
+              "text": "Offer key posts to prominent Democrats to form a 'national unity' cabinet.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "This would be dramatic and healing, but your party could rebel."
+            },
+            {
+              "id": "D",
+              "text": "Delay cabinet choices to keep everyone guessing for weeks.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Uncertainty during a contested transition can spook allies and markets."
+            }
+          ]
+        },
+        {
+          "id": "bush_q25",
+          "order": 25,
+          "prompt": "In your first major post-election address to the nation, what overarching theme do you stress?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Healing divisions and being 'a uniter, not a divider.'",
+              "advisorRating": "good",
+              "advisorFeedback": "This matches the tone you signaled in 2000 and addresses concerns after the recount fight."
+            },
+            {
+              "id": "B",
+              "text": "A strong mandate for sweeping conservative change.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Given the close result, many Americans won’t buy that you have a sweeping mandate."
+            },
+            {
+              "id": "C",
+              "text": "Relitigating Florida and justifying every step your campaign took.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Voters are exhausted by the fight; continuing it makes you look small."
+            },
+            {
+              "id": "D",
+              "text": "Stay vague and make no big thematic claims at all.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You waste a crucial moment when the country is most ready to listen."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gore",
+      "name": "Al Gore",
+      "party": "Democratic",
+      "questions": [
+        {
+          "id": "gore_q01",
+          "order": 1,
+          "prompt": "You launch your campaign after eight years as vice president. How closely do you tie yourself to Bill Clinton’s record?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Fully embrace Clinton and run as the 'third Clinton-Gore term.'",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You maximize the prosperity message but inherit the full weight of his scandals."
+            },
+            {
+              "id": "B",
+              "text": "Highlight the economic record while quietly distancing yourself from Clinton’s personal behavior.",
+              "advisorRating": "good",
+              "advisorFeedback": "You keep the good (peace and growth) while acknowledging voters’ discomfort with scandal."
+            },
+            {
+              "id": "C",
+              "text": "Openly criticize Clinton’s conduct and promise a moral clean break.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may please some swing voters, but Clinton loyalists and base activists may resent you."
+            },
+            {
+              "id": "D",
+              "text": "Downplay the entire Clinton era and focus only on your own biography.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You walk away from a huge advantage: a booming economy most voters like."
+            }
+          ]
+        },
+        {
+          "id": "gore_q02",
+          "order": 2,
+          "prompt": "Senator Bill Bradley challenges you in the Democratic primaries. How do you answer him?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Run as the experienced steward of prosperity who can actually win in November.",
+              "advisorRating": "good",
+              "advisorFeedback": "You appeal to pragmatists who want to keep the economic boom going."
+            },
+            {
+              "id": "B",
+              "text": "Move sharply left to neutralize his critiques on health care and campaign finance.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may win policy points but complicate your centrist general-election brand."
+            },
+            {
+              "id": "C",
+              "text": "Ignore Bradley and act as if the primary is a mere formality.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You risk letting him become the 'ideas candidate' and exposing your vulnerability."
+            },
+            {
+              "id": "D",
+              "text": "Attack him personally as elitist and out-of-touch with regular Democrats.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You might win, but you raise questions about your own temperament."
+            }
+          ]
+        },
+        {
+          "id": "gore_q03",
+          "order": 3,
+          "prompt": "You’re pitched a 'rebranding' strategy: new earth-tone wardrobe and a more aggressive persona coached by image consultants. Do you accept?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Adopt the new look and more assertive style, but keep it subtle.",
+              "advisorRating": "good",
+              "advisorFeedback": "Careful adjustments can soften your 'wooden' image without feeling fake."
+            },
+            {
+              "id": "B",
+              "text": "Go all-in on the consultants’ advice, changing dress, tone, and rhetoric overnight.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "The shift may seem inauthentic and invite media mockery."
+            },
+            {
+              "id": "C",
+              "text": "Refuse all rebranding, insisting voters accept you exactly as you are.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Authentic, but you may leave a key vulnerability unaddressed."
+            },
+            {
+              "id": "D",
+              "text": "Secretly follow the advice but publicly deny working with any such consultants.",
+              "advisorRating": "bad",
+              "advisorFeedback": "If exposed, you’ll look both calculating and dishonest."
+            }
+          ]
+        },
+        {
+          "id": "gore_q04",
+          "order": 4,
+          "prompt": "You’re defining your core economic message. How do you talk about the late-1990s boom?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Frame it as 'prosperity with a purpose' and promise to extend gains to those left behind.",
+              "advisorRating": "good",
+              "advisorFeedback": "You connect a good economy to a moral narrative of inclusion and fairness."
+            },
+            {
+              "id": "B",
+              "text": "Take personal credit as the main architect of the boom.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You assert leadership but risk seeming egotistical and stretching credibility."
+            },
+            {
+              "id": "C",
+              "text": "Downplay the economy and focus more on ethics and character contrasts with Bush.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You underuse your biggest objective advantage: good economic conditions."
+            },
+            {
+              "id": "D",
+              "text": "Warn constantly that the boom is about to crash without radical reforms.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You sound like you don’t believe in your own administration’s success."
+            }
+          ]
+        },
+        {
+          "id": "gore_q05",
+          "order": 5,
+          "prompt": "You unveil your Social Security and Medicare plan, including the famous 'lockbox.' How central is this theme?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Make the 'lockbox' metaphor a central, repeated message about protecting entitlements.",
+              "advisorRating": "good",
+              "advisorFeedback": "It’s memorable and reassures seniors, even if comedians parody the repetition."
+            },
+            {
+              "id": "B",
+              "text": "Offer detailed, technocratic explanations without a simple slogan.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Accurate but dry; many voters tune out before understanding your plan."
+            },
+            {
+              "id": "C",
+              "text": "Support partial privatization to neutralize Bush’s reform message.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You blur the contrast and confuse your own base about what you stand for."
+            },
+            {
+              "id": "D",
+              "text": "Avoid entitlement talk and focus on entirely new domestic programs instead.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You leave one of the top voter concerns largely unanswered on your side."
+            }
+          ]
+        },
+        {
+          "id": "gore_q06",
+          "order": 6,
+          "prompt": "Healthcare and anger at HMOs are key issues. How do you frame your reform message?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Push a strong patients’ bill of rights allowing lawsuits and guaranteeing specialist access.",
+              "advisorRating": "good",
+              "advisorFeedback": "You tap into real frustration and present yourself as the defender of ordinary patients."
+            },
+            {
+              "id": "B",
+              "text": "Offer incremental tweaks but avoid confrontation with insurers.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You reduce donor blowback but miss the public mood for stronger action."
+            },
+            {
+              "id": "C",
+              "text": "Ignore HMO issues and focus solely on prescription drug benefits for seniors.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Drugs matter, but ignoring HMOs leaves a big anger point unaddressed."
+            },
+            {
+              "id": "D",
+              "text": "Promise a sweeping single-payer system by 2004.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Politically unrealistic in 2000 and easy to attack as too radical."
+            }
+          ]
+        },
+        {
+          "id": "gore_q07",
+          "order": 7,
+          "prompt": "Guns are a hot topic after Columbine. How far do you go on gun control?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Support closing the gun-show loophole and expanding background checks.",
+              "advisorRating": "good",
+              "advisorFeedback": "Popular nationally, especially in suburbs, though it may hurt in some rural states."
+            },
+            {
+              "id": "B",
+              "text": "Push for aggressive measures like mandatory licensing and registration of all firearms.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You thrill gun-control advocates but risk losing Tennessee, West Virginia, and similar states."
+            },
+            {
+              "id": "C",
+              "text": "Downplay gun control and emphasize hunting traditions whenever asked.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You might appear inconsistent or insincere to both sides."
+            },
+            {
+              "id": "D",
+              "text": "Refuse to discuss guns at all, calling it a purely state issue.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Dodging a salient issue makes you look evasive and unconvincing."
+            }
+          ]
+        },
+        {
+          "id": "gore_q08",
+          "order": 8,
+          "prompt": "Environmental policy is your signature cause. How hard do you push on global warming and international agreements?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Strongly champion climate action and Kyoto-style agreements as a defining issue.",
+              "advisorRating": "good",
+              "advisorFeedback": "You solidify your brand and energize environmentalists and many young voters."
+            },
+            {
+              "id": "B",
+              "text": "Talk about the environment in moderate terms while avoiding explicit Kyoto endorsement.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may gain some flexibility but risk looking timid on your signature issue."
+            },
+            {
+              "id": "C",
+              "text": "Downplay environmental issues to court business support.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You undercut the core identity that many voters associate with you."
+            },
+            {
+              "id": "D",
+              "text": "Promise immediate, sweeping regulations that will clearly raise energy prices.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You show conviction but hand opponents a potent 'energy tax' talking point."
+            }
+          ]
+        },
+        {
+          "id": "gore_q09",
+          "order": 9,
+          "prompt": "The Elián González case erupts in Miami, inflaming Cuban-American opinion. What is your stance?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Support the Justice Department’s decision to reunite Elián with his father, stressing rule of law.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You appear principled nationally but hurt yourself among Cuban voters in Florida."
+            },
+            {
+              "id": "B",
+              "text": "Criticize the raid’s tactics while defending the ultimate legal outcome.",
+              "advisorRating": "good",
+              "advisorFeedback": "You show empathy for outraged communities while upholding the law."
+            },
+            {
+              "id": "C",
+              "text": "Condemn the raid and side squarely with Miami’s Cuban-American leaders.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You might gain some Florida votes but look opportunistic elsewhere."
+            },
+            {
+              "id": "D",
+              "text": "Try to stay neutral and rarely mention the case.",
+              "advisorRating": "bad",
+              "advisorFeedback": "The story is too big; silence looks like weakness."
+            }
+          ]
+        },
+        {
+          "id": "gore_q10",
+          "order": 10,
+          "prompt": "You once said you 'took the initiative in creating the Internet,' and opponents mock it as vanity. How do you address this?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Clarify that you supported legislation and funding, not that you literally invented it.",
+              "advisorRating": "good",
+              "advisorFeedback": "A straightforward clarification can deflate the joke somewhat."
+            },
+            {
+              "id": "B",
+              "text": "Ignore the criticism and hope it fades.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "It may fade with time, but it feeds the caricature of you as self-important."
+            },
+            {
+              "id": "C",
+              "text": "Double down and insist the statement was 100% accurate.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You look defensive and out of touch with how voters heard the quote."
+            },
+            {
+              "id": "D",
+              "text": "Make self-deprecating jokes about it in speeches.",
+              "advisorRating": "good",
+              "advisorFeedback": "Humor shows self-awareness and can soften your image."
+            }
+          ]
+        },
+        {
+          "id": "gore_q11",
+          "order": 11,
+          "prompt": "You must choose a running mate. How do you decide on Joe Lieberman and alternatives?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Pick Lieberman to signal moral seriousness and appeal to moderates and swing voters.",
+              "advisorRating": "good",
+              "advisorFeedback": "You gain a historic first and distance yourself somewhat from Clinton’s scandals."
+            },
+            {
+              "id": "B",
+              "text": "Choose a populist Midwestern or Southern running mate to shore up that region.",
+              "advisorRating": "good",
+              "advisorFeedback": "You might strengthen your chances in states like Tennessee or West Virginia."
+            },
+            {
+              "id": "C",
+              "text": "Select a strongly progressive senator to lure Nader-leaning liberals back.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Helps with the left but may worry centrists and swing voters."
+            },
+            {
+              "id": "D",
+              "text": "Pick a low-profile figure mainly for geographic balance with little vetting.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You risk a weak ticket and unknown liabilities surfacing late."
+            }
+          ]
+        },
+        {
+          "id": "gore_q12",
+          "order": 12,
+          "prompt": "How do you negotiate the debate formats with Bush?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Push for multiple traditional podium debates where your policy mastery can shine.",
+              "advisorRating": "good",
+              "advisorFeedback": "You highlight your strengths, though you must guard against sounding condescending."
+            },
+            {
+              "id": "B",
+              "text": "Push for more town-hall debates to show your human side.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "It could help your likability but also exposes you to unscripted moments."
+            },
+            {
+              "id": "C",
+              "text": "Limit the number of debates to minimize gaffe risk.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Safer, but Bush might accuse you of ducking, and voters expect a robust debate schedule."
+            },
+            {
+              "id": "D",
+              "text": "Refuse debates entirely and rely on paid media.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That would be politically untenable in a modern presidential race."
+            }
+          ]
+        },
+        {
+          "id": "gore_q13",
+          "order": 13,
+          "prompt": "Preparing for the first debate, how do you manage your demeanor and style?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Focus on calm, measured responses and avoid visible frustration or sighing.",
+              "advisorRating": "good",
+              "advisorFeedback": "You keep your strengths without alienating viewers with body language."
+            },
+            {
+              "id": "B",
+              "text": "Aggressively correct every misstatement and show impatience with vague answers.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may win on facts but risk looking arrogant and condescending."
+            },
+            {
+              "id": "C",
+              "text": "Use humor and warmth, even if it means simplifying some complex points.",
+              "advisorRating": "good",
+              "advisorFeedback": "Humanizing yourself can matter more than extra policy detail for many viewers."
+            },
+            {
+              "id": "D",
+              "text": "Focus heavily on attacking Bush’s intelligence and preparedness.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Personal attacks can backfire if he comes off as more likable than expected."
+            }
+          ]
+        },
+        {
+          "id": "gore_q14",
+          "order": 14,
+          "prompt": "Ralph Nader’s Green campaign is gaining traction. How do you respond?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Appeal directly to his supporters by emphasizing your environmental and reform credentials.",
+              "advisorRating": "good",
+              "advisorFeedback": "You try to win them back without giving Nader extra oxygen."
+            },
+            {
+              "id": "B",
+              "text": "Attack Nader as a spoiler whose votes will effectively elect Bush.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may scare some voters back but risk energizing his core support."
+            },
+            {
+              "id": "C",
+              "text": "Ignore Nader and treat the race strictly as Bush vs. Gore.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You risk bleeding just enough votes in close states to lose."
+            },
+            {
+              "id": "D",
+              "text": "Offer Nader a public policy role if he drops out and endorses you.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Could be effective but may look like a backroom deal and might be rejected publicly."
+            }
+          ]
+        },
+        {
+          "id": "gore_q15",
+          "order": 15,
+          "prompt": "You must allocate fall campaign resources. Which states do you prioritize?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Focus on Florida as the key tipping-point state.",
+              "advisorRating": "good",
+              "advisorFeedback": "Florida proved decisive; heavy investment there makes strategic sense."
+            },
+            {
+              "id": "B",
+              "text": "Prioritize the industrial Midwest—Michigan, Pennsylvania, and Wisconsin.",
+              "advisorRating": "good",
+              "advisorFeedback": "These states are more reliably Democratic but still competitive and crucial."
+            },
+            {
+              "id": "C",
+              "text": "Spend heavily to defend your home region in Tennessee and neighboring states.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Protecting your base is important, but overspending here may cost you elsewhere."
+            },
+            {
+              "id": "D",
+              "text": "Spread resources thinly across all potentially competitive states.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You need a clear priority map in such a close election."
+            }
+          ]
+        },
+        {
+          "id": "gore_q16",
+          "order": 16,
+          "prompt": "Your GOTV operation can’t do everything. Which groups get the strongest push?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Union households and seniors in key battleground states.",
+              "advisorRating": "good",
+              "advisorFeedback": "These groups vote reliably and can make the difference in states like Pennsylvania and Florida."
+            },
+            {
+              "id": "B",
+              "text": "Young voters and college campuses across the country.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "They’re enthusiastic but historically unreliable in turnout."
+            },
+            {
+              "id": "C",
+              "text": "Rural white voters in the South and Appalachia.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Important, but they’re trending away from you and are hard to move late."
+            },
+            {
+              "id": "D",
+              "text": "A broad, untargeted national GOTV strategy.",
+              "advisorRating": "bad",
+              "advisorFeedback": "In a tight race, precision beats breadth."
+            }
+          ]
+        },
+        {
+          "id": "gore_q17",
+          "order": 17,
+          "prompt": "On election night, networks first call Florida for you, then move it back to 'too close to call.' Later they call it for Bush. Staff tells you the race is extremely tight. What do you do?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Concede quickly based on the new network calls.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Quick concession looks gracious but can be difficult to undo if numbers shift—exactly what happened."
+            },
+            {
+              "id": "B",
+              "text": "Refuse to concede until your team confirms the final count.",
+              "advisorRating": "good",
+              "advisorFeedback": "You protect your options and avoid the humiliation of retracting a concession."
+            },
+            {
+              "id": "C",
+              "text": "Publicly declare victory despite the uncertainty.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You risk being seen as reckless if subsequent counts contradict you."
+            },
+            {
+              "id": "D",
+              "text": "Go on television and urge calm, emphasizing that every vote must be counted.",
+              "advisorRating": "good",
+              "advisorFeedback": "You appear statesmanlike and frame the fight around democratic principles."
+            }
+          ]
+        },
+        {
+          "id": "gore_q18",
+          "order": 18,
+          "prompt": "Florida’s margin is within a few hundred votes. What kind of recount request do you pursue?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Demand a statewide manual recount of all counties.",
+              "advisorRating": "good",
+              "advisorFeedback": "A uniform recount looks fairer and may strengthen your legal position, if logistically difficult."
+            },
+            {
+              "id": "B",
+              "text": "Request manual recounts in a few heavily Democratic counties only.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Targeted recounts maximize your vote gain but look partisan and selective."
+            },
+            {
+              "id": "C",
+              "text": "Accept only the automatic machine recount and stop there.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You likely lose without exhausting reasonable legal options."
+            },
+            {
+              "id": "D",
+              "text": "Demand an entirely new statewide election in Florida.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Courts are unlikely to grant this; you’ll appear unrealistic and desperate."
+            }
+          ]
+        },
+        {
+          "id": "gore_q19",
+          "order": 19,
+          "prompt": "As legal battles unfold, what tone do you adopt in public?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Calmly insist every vote be counted and express confidence in the system.",
+              "advisorRating": "good",
+              "advisorFeedback": "You frame your fight as defending democracy rather than personal ambition."
+            },
+            {
+              "id": "B",
+              "text": "Accuse Republicans of trying to steal the election through legal tricks.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You fire up your base but risk undermining faith in the process if you lose."
+            },
+            {
+              "id": "C",
+              "text": "Stay mostly silent and let lawyers speak for you.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You avoid gaffes but may look passive in a defining national moment."
+            },
+            {
+              "id": "D",
+              "text": "Encourage mass street protests outside counting centers.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Escalating tensions on the ground could backfire badly."
+            }
+          ]
+        },
+        {
+          "id": "gore_q20",
+          "order": 20,
+          "prompt": "The Supreme Court halts the recount in Bush v. Gore, effectively giving Bush the presidency. How do you respond?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Concede publicly, accept the Court’s decision, and urge national unity.",
+              "advisorRating": "good",
+              "advisorFeedback": "You preserve your reputation as a statesman, even in defeat."
+            },
+            {
+              "id": "B",
+              "text": "Denounce the decision as partisan and imply Bush will be an illegitimate president.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You please some supporters but could damage institutions and your own long-term image."
+            },
+            {
+              "id": "C",
+              "text": "Refuse to concede and explore remaining technical options in Congress.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Extremely unlikely to succeed and risks looking like an attempted end-run around the system."
+            },
+            {
+              "id": "D",
+              "text": "Issue only a short written statement with no televised address.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You miss a historic moment to define your legacy and calm the country."
+            }
+          ]
+        },
+        {
+          "id": "gore_q21",
+          "order": 21,
+          "prompt": "Thinking about your political future, how do you position yourself after conceding?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Step away from electoral politics and focus on climate and global issues.",
+              "advisorRating": "good",
+              "advisorFeedback": "You build an influential role that can outlast one lost election."
+            },
+            {
+              "id": "B",
+              "text": "Immediately begin signaling another presidential run in 2004.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Some supporters will cheer, but others may see it as clinging too quickly to power ambitions."
+            },
+            {
+              "id": "C",
+              "text": "Retreat from public life almost entirely.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You squander the stature and goodwill you retained from your concession."
+            },
+            {
+              "id": "D",
+              "text": "Become primarily a television pundit criticizing the new administration.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You stay visible but risk shrinking your stature to that of a partisan commentator."
+            }
+          ]
+        },
+        {
+          "id": "gore_q22",
+          "order": 22,
+          "prompt": "Looking back over the campaign, how do you assess your decision to keep Clinton at arm’s length?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Admit privately it might have been a mistake and learn for future coalitions.",
+              "advisorRating": "good",
+              "advisorFeedback": "Honest appraisal helps you refine strategy if you ever run again or advise others."
+            },
+            {
+              "id": "B",
+              "text": "Insist you were right and that Clinton’s involvement only would have hurt you.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You defend your judgment but may be ignoring evidence from close states where he was popular."
+            },
+            {
+              "id": "C",
+              "text": "Blame your staff for not using Clinton more aggressively.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Scapegoating undermines your own leadership image."
+            },
+            {
+              "id": "D",
+              "text": "Publicly rewrite history and claim you actually campaigned closely with him.",
+              "advisorRating": "bad",
+              "advisorFeedback": "The record is clear; obvious revisionism hurts your credibility."
+            }
+          ]
+        },
+        {
+          "id": "gore_q23",
+          "order": 23,
+          "prompt": "Your campaign faced constant caricatures of you as stiff and aloof. How should you have addressed this earlier?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Lean into your seriousness but combine it with more personal storytelling.",
+              "advisorRating": "good",
+              "advisorFeedback": "You keep your strengths while showing voters who you are as a person."
+            },
+            {
+              "id": "B",
+              "text": "Try to out-folksy Bush and mimic his mannerisms.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Imitating your opponent’s style looks inauthentic and invites mockery."
+            },
+            {
+              "id": "C",
+              "text": "Avoid unscripted interactions to minimize awkward moments.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You limit gaffes but also sacrifice chances to connect with ordinary voters."
+            },
+            {
+              "id": "D",
+              "text": "Ignore image concerns altogether and focus exclusively on policy depth.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Policy matters, but elections are also about personality; ignoring that costs votes."
+            }
+          ]
+        },
+        {
+          "id": "gore_q24",
+          "order": 24,
+          "prompt": "Your campaign-finance record from 1996 (like the Buddhist temple fundraiser) kept resurfacing. What was the best approach?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Acknowledge past mistakes, explain reforms, and pivot to your plan for cleaner politics.",
+              "advisorRating": "good",
+              "advisorFeedback": "Owning up and offering solutions can blunt attacks and even turn a weakness into a theme."
+            },
+            {
+              "id": "B",
+              "text": "Deny all wrongdoing and accuse critics of partisanship.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Some partisans will accept this, but undecided voters may not."
+            },
+            {
+              "id": "C",
+              "text": "Refuse to answer questions about 1996 at all.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Stonewalling feeds the narrative that you’re hiding something."
+            },
+            {
+              "id": "D",
+              "text": "Attack the entire campaign finance system without addressing your own controversies.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may sound principled but evasive about your personal role."
+            }
+          ]
+        },
+        {
+          "id": "gore_q25",
+          "order": 25,
+          "prompt": "Thinking as a strategist, what single strategic emphasis would you choose if you could rerun 2000?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Embrace Clinton’s popularity more fully and emphasize peace and prosperity above all.",
+              "advisorRating": "good",
+              "advisorFeedback": "This likely strengthens you in close states where the economy was working for voters."
+            },
+            {
+              "id": "B",
+              "text": "Double down on populist attacks on corporate power to blunt Nader.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "It might help with left-leaning voters but could risk moderate support."
+            },
+            {
+              "id": "C",
+              "text": "Frame the election mostly around character and ethics differences with Bush.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You might gain with some, but 2000 was ripe for an economic message more than moral lectures."
+            },
+            {
+              "id": "D",
+              "text": "Run an aggressively negative campaign from start to finish.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Endless negativity can depress turnout and damage your own favorables."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nader",
+      "name": "Ralph Nader",
+      "party": "Green",
+      "questions": [
+        {
+          "id": "nader_q01",
+          "order": 1,
+          "prompt": "You’re considering a 2000 presidential run. What is your primary motivation?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Run to challenge corporate power and the two-party system head-on.",
+              "advisorRating": "good",
+              "advisorFeedback": "This clear mission energizes activists and forms the core of your campaign identity."
+            },
+            {
+              "id": "B",
+              "text": "Run mainly to pressure Gore into adopting some of your positions.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You might win some concessions, but your campaign risks becoming a bargaining chip."
+            },
+            {
+              "id": "C",
+              "text": "Decide not to run and work behind the scenes as an advocate.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You lose the national platform that a presidential run provides."
+            },
+            {
+              "id": "D",
+              "text": "Run primarily as a way to promote a new book and speaking tour.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That would undermine your moral authority and alienate sincere supporters."
+            }
+          ]
+        },
+        {
+          "id": "nader_q02",
+          "order": 2,
+          "prompt": "Do you seek the Green Party nomination or run purely as an independent?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Seek and accept the Green Party nomination.",
+              "advisorRating": "good",
+              "advisorFeedback": "You gain ballot infrastructure and give the party a national standard-bearer."
+            },
+            {
+              "id": "B",
+              "text": "Run as an independent to stay above party labels.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You maintain independence but sacrifice organizational support in many states."
+            },
+            {
+              "id": "C",
+              "text": "Refuse any ballot line that’s not perfectly aligned with you on every issue.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You’ll end up marginalizing your own reach with ideological purity tests."
+            },
+            {
+              "id": "D",
+              "text": "Delay your decision on party affiliation until late in the year.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Late decisions hurt ballot access efforts and confuse potential supporters."
+            }
+          ]
+        },
+        {
+          "id": "nader_q03",
+          "order": 3,
+          "prompt": "What is the central theme of your campaign?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Opposition to corporate domination of politics and demand for campaign finance reform.",
+              "advisorRating": "good",
+              "advisorFeedback": "This resonates deeply with your core supporters and sets you apart from both major parties."
+            },
+            {
+              "id": "B",
+              "text": "A narrow focus on environmental policy only.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Important, but too narrow to build the broader movement you seek."
+            },
+            {
+              "id": "C",
+              "text": "A vague call for 'change' without specifying enemies or systems.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You lose the sharp edge that differentiates you."
+            },
+            {
+              "id": "D",
+              "text": "Personal grievances against Gore and Democrats who have ignored you.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That makes the campaign look petty rather than principled."
+            }
+          ]
+        },
+        {
+          "id": "nader_q04",
+          "order": 4,
+          "prompt": "Ballot access is a major hurdle. What’s your strategy?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Organize intensive petition drives to appear on as many state ballots as possible.",
+              "advisorRating": "good",
+              "advisorFeedback": "You maximize your national visibility and vote total potential."
+            },
+            {
+              "id": "B",
+              "text": "Limit ballot access to states where it’s easy, focusing on symbolic runs.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You conserve resources but undercut the seriousness of a national campaign."
+            },
+            {
+              "id": "C",
+              "text": "Rely on volunteers without central coordination and hope for the best.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Without coordination, you risk missing deadlines and losing ballot spots."
+            },
+            {
+              "id": "D",
+              "text": "Skip ballot access entirely and run only as a write-in everywhere.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Your vote totals will be tiny and largely invisible to the broader public."
+            }
+          ]
+        },
+        {
+          "id": "nader_q05",
+          "order": 5,
+          "prompt": "How do you frame your critique of Gore and Bush?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Describe them as 'Tweedledee and Tweedledum' of corporate politics.",
+              "advisorRating": "good",
+              "advisorFeedback": "A sharp line that encapsulates your view and gets quoted widely."
+            },
+            {
+              "id": "B",
+              "text": "Attack Bush much harder than Gore, treating Gore as a potential ally.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You reduce 'spoiler' accusations but also blur your critique of the two-party system."
+            },
+            {
+              "id": "C",
+              "text": "Attack Gore far more than Bush to punish Democrats for past betrayals.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You signal anger at Democrats but risk looking like you’re helping Bush by design."
+            },
+            {
+              "id": "D",
+              "text": "Avoid criticizing either major party to maintain a purely positive message.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Your campaign loses its critical edge and reason for existence."
+            }
+          ]
+        },
+        {
+          "id": "nader_q06",
+          "order": 6,
+          "prompt": "You must choose a vice presidential running mate. What profile do you seek?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Pick an indigenous environmental activist like Winona LaDuke.",
+              "advisorRating": "good",
+              "advisorFeedback": "You reinforce your environmental and social-justice credentials while broadening representation."
+            },
+            {
+              "id": "B",
+              "text": "Choose a former Democratic politician to signal respectability.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You might reassure some voters but risk diluting your anti-establishment message."
+            },
+            {
+              "id": "C",
+              "text": "Select a completely unknown local activist with almost no national profile.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Ideologically pure, but offering little help in media visibility or credibility."
+            },
+            {
+              "id": "D",
+              "text": "Skip naming a running mate until very late in the campaign.",
+              "advisorRating": "bad",
+              "advisorFeedback": "This looks disorganized and may hurt ballot access in some states."
+            }
+          ]
+        },
+        {
+          "id": "nader_q07",
+          "order": 7,
+          "prompt": "What is your position on taking corporate money for the campaign?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Refuse all corporate donations and rely on small individual contributions.",
+              "advisorRating": "good",
+              "advisorFeedback": "You live your principles and differentiate yourself clearly, even if funding is limited."
+            },
+            {
+              "id": "B",
+              "text": "Accept corporate money but promise it won’t influence your positions.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That contradicts your core message and undermines your credibility."
+            },
+            {
+              "id": "C",
+              "text": "Accept union and small PAC money while rejecting corporate PAC funds.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Some nuance is possible, but your supporters may still see this as compromise."
+            },
+            {
+              "id": "D",
+              "text": "Run entirely self-funded to avoid any donors at all.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Impressive in principle, but unrealistic at the scale you want without major personal wealth."
+            }
+          ]
+        },
+        {
+          "id": "nader_q08",
+          "order": 8,
+          "prompt": "How do you approach the issue of whether your campaign might help elect Bush?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Argue that Democrats must earn votes and that 'no one owns your vote.'",
+              "advisorRating": "good",
+              "advisorFeedback": "You maintain independence while challenging Gore to appeal to your supporters."
+            },
+            {
+              "id": "B",
+              "text": "Acknowledge you might help Bush but insist the risk is worth exposing the system.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Brutally honest, but may alienate some progressives who fear a Bush presidency."
+            },
+            {
+              "id": "C",
+              "text": "Promise to drop out if the race becomes extremely close in key states.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Reassuring to some, but you risk looking indecisive or insincere."
+            },
+            {
+              "id": "D",
+              "text": "Refuse to answer any questions about the 'spoiler' issue.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Silence reinforces critics’ narrative without giving your perspective."
+            }
+          ]
+        },
+        {
+          "id": "nader_q09",
+          "order": 9,
+          "prompt": "The Commission on Presidential Debates excludes you. How do you respond?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Protest publicly, hold rallies outside debate sites, and highlight the unfair rules.",
+              "advisorRating": "good",
+              "advisorFeedback": "You dramatize your critique of the two-party monopoly and gain media coverage."
+            },
+            {
+              "id": "B",
+              "text": "Quietly accept exclusion and focus on small local events.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You surrender a major chance to make your case about structural unfairness."
+            },
+            {
+              "id": "C",
+              "text": "Encourage supporters to disrupt the debates inside the hall.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Disruption can alienate undecided viewers and be portrayed as disrespectful."
+            },
+            {
+              "id": "D",
+              "text": "Attempt to negotiate privately with the Commission to lower their thresholds.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Worth trying, but they’re unlikely to bend easily; you’ll still need public pressure."
+            }
+          ]
+        },
+        {
+          "id": "nader_q10",
+          "order": 10,
+          "prompt": "Where do you focus your physical campaign events?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Large rallies in big cities and college towns, including some swing states.",
+              "advisorRating": "good",
+              "advisorFeedback": "You build movement energy and media attention, though you’ll fuel 'spoiler' criticism."
+            },
+            {
+              "id": "B",
+              "text": "Events mainly in safe blue and red states where your impact on the outcome is limited.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You reduce spoiler accusations but may get less press and fewer votes overall."
+            },
+            {
+              "id": "C",
+              "text": "A low-key tour with small, invitation-only house meetings.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You deepen connections but sacrifice the spectacle that draws national coverage."
+            },
+            {
+              "id": "D",
+              "text": "Run a mostly virtual campaign with minimal travel.",
+              "advisorRating": "bad",
+              "advisorFeedback": "In 2000, a low-travel strategy severely limits your reach and visibility."
+            }
+          ]
+        },
+        {
+          "id": "nader_q11",
+          "order": 11,
+          "prompt": "Labor unions are split: some like your message, many back Gore. How do you handle union relations?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Welcome union support where offered but avoid attacking unions that back Gore.",
+              "advisorRating": "good",
+              "advisorFeedback": "You remain principled without burning bridges with future allies."
+            },
+            {
+              "id": "B",
+              "text": "Condemn unions backing Gore as 'corporatist sellouts.'",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You vent frustration but risk alienating rank-and-file members who might like you."
+            },
+            {
+              "id": "C",
+              "text": "Refuse any institutional union support to stay purely grassroots.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You keep your purity narrative but lose valuable organizing muscle."
+            },
+            {
+              "id": "D",
+              "text": "Focus heavily on winning formal union endorsements instead of building your own base.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Chasing endorsements that likely won’t come wastes precious time and energy."
+            }
+          ]
+        },
+        {
+          "id": "nader_q12",
+          "order": 12,
+          "prompt": "How prominently do you feature trade and globalization issues, especially after protests like Seattle 1999?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Make opposition to WTO/NAFTA-style trade deals a central plank.",
+              "advisorRating": "good",
+              "advisorFeedback": "You tap into a growing movement and distinguish yourself clearly from both major parties."
+            },
+            {
+              "id": "B",
+              "text": "Mention trade occasionally but focus mainly on environmental themes.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You’ll still appeal to some activists but miss a chance to broaden your coalition."
+            },
+            {
+              "id": "C",
+              "text": "Avoid trade issues because they’re too complex for a national audience.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Complex or not, they’re central to your political critique."
+            },
+            {
+              "id": "D",
+              "text": "Embrace free-trade orthodoxy to appeal to business-friendly moderates.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That’s completely at odds with your established record and message."
+            }
+          ]
+        },
+        {
+          "id": "nader_q13",
+          "order": 13,
+          "prompt": "Progressives you once worked with (like 'Nader’s Raiders for Gore') plead with you to avoid swing states. How do you answer?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Respectfully reject their plea and continue campaigning wherever you wish.",
+              "advisorRating": "good",
+              "advisorFeedback": "You maintain your independence and message consistency, though criticism will grow."
+            },
+            {
+              "id": "B",
+              "text": "Agree to avoid swing states and concentrate on safe ones.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You reduce spoiler concerns but sacrifice leverage and visibility in the most-watched states."
+            },
+            {
+              "id": "C",
+              "text": "Publicly attack them as cowards who fear real democracy.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You vent anger but may alienate sympathetic progressives who disagree on tactics."
+            },
+            {
+              "id": "D",
+              "text": "Privately promise restraint but continue visiting swing states anyway.",
+              "advisorRating": "bad",
+              "advisorFeedback": "If the contradiction becomes public, you’ll be seen as duplicitous."
+            }
+          ]
+        },
+        {
+          "id": "nader_q14",
+          "order": 14,
+          "prompt": "Some supporters propose 'vote-swapping' websites (Nader in safe states, Gore in swing states). What’s your position?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Support vote-swapping as a tactical way to maximize both your vote share and progressive influence.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Clever, but legally murky and potentially confusing to voters."
+            },
+            {
+              "id": "B",
+              "text": "Oppose vote-swapping and insist people should vote their conscience directly.",
+              "advisorRating": "good",
+              "advisorFeedback": "You preserve a clear, uncompromised message about voter autonomy."
+            },
+            {
+              "id": "C",
+              "text": "Ignore the practice and never comment.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You avoid entanglement but miss a chance to shape the narrative."
+            },
+            {
+              "id": "D",
+              "text": "Secretly coordinate with vote-swapping sites while publicly denying involvement.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Secrecy erodes your image as transparent and principled."
+            }
+          ]
+        },
+        {
+          "id": "nader_q15",
+          "order": 15,
+          "prompt": "It’s mid-October. You can fill Madison Square Garden with a high-profile rally. Where do you hold it?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "In a safe state like New York, where the outcome is not in doubt.",
+              "advisorRating": "good",
+              "advisorFeedback": "You maximize spectacle and reduce spoiler accusations somewhat."
+            },
+            {
+              "id": "B",
+              "text": "In a key swing state like Florida or Wisconsin.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You send a strong message but intensify criticism that you’re risking a Bush victory."
+            },
+            {
+              "id": "C",
+              "text": "Cancel the large rally and rely on smaller, local meetings.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You avoid controversy but sacrifice a major media moment."
+            },
+            {
+              "id": "D",
+              "text": "Hold simultaneous rallies in multiple swing states via satellite link.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Ambitious but logistically complex and politically explosive."
+            }
+          ]
+        },
+        {
+          "id": "nader_q16",
+          "order": 16,
+          "prompt": "How do you frame your stance on the 'lesser of two evils' argument pressed by many Democrats?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Argue that voting for the lesser evil still entrenches evil and corruption.",
+              "advisorRating": "good",
+              "advisorFeedback": "This sharp line clarifies why your supporters reject tactical voting."
+            },
+            {
+              "id": "B",
+              "text": "Encourage voters in swing states to choose Gore if they truly fear Bush.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Morally nuanced but muddles your call for independent political courage."
+            },
+            {
+              "id": "C",
+              "text": "Accept the 'lesser evil' logic and endorse Gore late in the race.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You’d alienate core supporters and appear to cave to pressure."
+            },
+            {
+              "id": "D",
+              "text": "Dismiss all such questions as irrelevant.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You ignore a central moral concern for many potential supporters."
+            }
+          ]
+        },
+        {
+          "id": "nader_q17",
+          "order": 17,
+          "prompt": "Election night approaches. How do you advise your supporters about their vote?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Urge them to vote Green wherever they are, regardless of state competitiveness.",
+              "advisorRating": "good",
+              "advisorFeedback": "You remain consistent with your message that every vote should reflect conscience."
+            },
+            {
+              "id": "B",
+              "text": "Encourage safe-state supporters to vote Nader and swing-state supporters to make their own careful choice.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You introduce nuance but risk sowing confusion and appearing equivocal."
+            },
+            {
+              "id": "C",
+              "text": "Tell supporters in swing states to vote tactically for Gore.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You soften spoiler critiques but undercut your own independent challenge."
+            },
+            {
+              "id": "D",
+              "text": "Offer no guidance at all, saying 'do whatever.'",
+              "advisorRating": "bad",
+              "advisorFeedback": "A non-answer undermines your role as a moral and strategic leader."
+            }
+          ]
+        },
+        {
+          "id": "nader_q18",
+          "order": 18,
+          "prompt": "After the election, critics blame you for Gore’s narrow loss in Florida. How do you respond?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Point to multiple other causes (ballot design, Gore’s strategy, Democratic failures) and reject sole blame.",
+              "advisorRating": "good",
+              "advisorFeedback": "You contextualize the outcome while defending your decision to run."
+            },
+            {
+              "id": "B",
+              "text": "Openly admit you might have cost Gore the presidency and express regret.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Honest, but it undermines your argument that your campaign was necessary and justified."
+            },
+            {
+              "id": "C",
+              "text": "Mock Democrats for whining about the result.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You maintain defiance but risk alienating sympathetic progressives."
+            },
+            {
+              "id": "D",
+              "text": "Stay completely silent and refuse to discuss Florida at all.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Silence cedes the narrative entirely to your critics."
+            }
+          ]
+        },
+        {
+          "id": "nader_q19",
+          "order": 19,
+          "prompt": "How do you use your 2000 campaign to build something lasting?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Strengthen Green Party ballot status and local candidates for future cycles.",
+              "advisorRating": "good",
+              "advisorFeedback": "You turn a presidential run into an infrastructure investment for the movement."
+            },
+            {
+              "id": "B",
+              "text": "Focus on writing a memoir and documenting your experience.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You preserve history but do less to build organization on the ground."
+            },
+            {
+              "id": "C",
+              "text": "Dissolve much of the campaign apparatus after November.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Momentum dissipates and your brief surge becomes a historical footnote."
+            },
+            {
+              "id": "D",
+              "text": "Convert the campaign into a permanent personal-brand fundraising machine.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That would look self-serving and clash with your anti-corruption message."
+            }
+          ]
+        },
+        {
+          "id": "nader_q20",
+          "order": 20,
+          "prompt": "Considering 2004 and beyond, do you plan to run again?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Leave the door open but say the movement matters more than any one campaign.",
+              "advisorRating": "good",
+              "advisorFeedback": "You keep flexibility while emphasizing principle over personal ambition."
+            },
+            {
+              "id": "B",
+              "text": "Promise definitively that you will not run again.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "This might reassure some critics but reduce your future leverage."
+            },
+            {
+              "id": "C",
+              "text": "Announce immediately that you will run again in 2004.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You please die-hard supporters but inflame those who already blame you for 2000."
+            },
+            {
+              "id": "D",
+              "text": "Say nothing and refuse to answer any questions about future elections.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Total opacity doesn’t help you shape expectations or strategy."
+            }
+          ]
+        },
+        {
+          "id": "nader_q21",
+          "order": 21,
+          "prompt": "How do you relate to other third-party or independent candidates like Pat Buchanan in 2000?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Maintain clear policy distance while defending their right to run.",
+              "advisorRating": "good",
+              "advisorFeedback": "You affirm pluralism without blurring ideological differences."
+            },
+            {
+              "id": "B",
+              "text": "Coordinate with them for shared ballot access and debate reform fights.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You may gain tactical allies but risk confusing your distinct messages."
+            },
+            {
+              "id": "C",
+              "text": "Publicly attack them as distractions from your own campaign.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That undercuts your broader argument for more voices and parties."
+            },
+            {
+              "id": "D",
+              "text": "Ignore their existence entirely.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Not fatal, but you miss chances to highlight the system’s barriers to all outsiders."
+            }
+          ]
+        },
+        {
+          "id": "nader_q22",
+          "order": 22,
+          "prompt": "Your campaign must decide between investing in traditional media ads versus alternative media and grassroots organizing. What’s the mix?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Prioritize alternative media, campus outreach, and grassroots organizing over expensive TV ads.",
+              "advisorRating": "good",
+              "advisorFeedback": "This fits your budget and ethos while building real networks."
+            },
+            {
+              "id": "B",
+              "text": "Spend heavily on TV ads to try to match the major parties’ visibility.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Ambitious but likely unsustainable financially at the scale needed."
+            },
+            {
+              "id": "C",
+              "text": "Avoid media entirely and rely solely on word-of-mouth.",
+              "advisorRating": "bad",
+              "advisorFeedback": "You’ll remain invisible outside small activist circles."
+            },
+            {
+              "id": "D",
+              "text": "Rely primarily on newspaper op-eds and ignore other channels.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Op-eds help, but they’re not enough to build a national movement alone."
+            }
+          ]
+        },
+        {
+          "id": "nader_q23",
+          "order": 23,
+          "prompt": "Internally, how do you handle disagreements within your campaign about targeting swing states?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Encourage open debate but make clear you’ll decide based on movement-building, not party pressure.",
+              "advisorRating": "good",
+              "advisorFeedback": "You show leadership while listening to your team’s concerns."
+            },
+            {
+              "id": "B",
+              "text": "Shut down internal dissent and declare the issue non-negotiable.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You preserve clarity but risk demoralizing close advisers."
+            },
+            {
+              "id": "C",
+              "text": "Put the decision up for a public vote among supporters.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "Democratic, but potentially chaotic and hard to implement in time."
+            },
+            {
+              "id": "D",
+              "text": "Avoid making any clear decision and let events decide where you go.",
+              "advisorRating": "bad",
+              "advisorFeedback": "Lack of strategy will undercut both your movement and vote totals."
+            }
+          ]
+        },
+        {
+          "id": "nader_q24",
+          "order": 24,
+          "prompt": "In shaping your legacy, how do you want history to remember your 2000 run?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "As a principled stand against corporate control, regardless of short-term outcomes.",
+              "advisorRating": "good",
+              "advisorFeedback": "This story aligns with your life’s work and many supporters’ view of your run."
+            },
+            {
+              "id": "B",
+              "text": "As a tactical miscalculation you now regret.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "It might soften critics but contradicts your earlier insistence on the run’s necessity."
+            },
+            {
+              "id": "C",
+              "text": "As revenge against Democrats for previous disappointments.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That narrative trivializes your broader critique and values."
+            },
+            {
+              "id": "D",
+              "text": "As primarily a personal branding exercise.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That would demolish the moral authority you built over decades."
+            }
+          ]
+        },
+        {
+          "id": "nader_q25",
+          "order": 25,
+          "prompt": "If you could change one strategic choice from the 2000 campaign, what would it be?",
+          "choices": [
+            {
+              "id": "A",
+              "text": "Clarify earlier how you’d balance running in swing states with concerns about spoilers.",
+              "advisorRating": "good",
+              "advisorFeedback": "You address a central controversy without abandoning your principles."
+            },
+            {
+              "id": "B",
+              "text": "Avoid any rallies or major events in closely contested states.",
+              "advisorRating": "mixed",
+              "advisorFeedback": "You reduce blame but also diminish the movement’s visibility."
+            },
+            {
+              "id": "C",
+              "text": "Reduce your criticism of Gore and focus more on systemic issues.",
+              "advisorRating": "good",
+              "advisorFeedback": "You maintain your critique while making it less personal and polarizing among progressives."
+            },
+            {
+              "id": "D",
+              "text": "Not run at all.",
+              "advisorRating": "bad",
+              "advisorFeedback": "That would erase the very challenge you set out to mount against the two-party system."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
