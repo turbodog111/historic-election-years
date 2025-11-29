@@ -676,8 +676,52 @@ let gameState = {
     selectedCandidate: null,
     currentQuestion: 0,
     statePolling: {},
-    questionsAnswered: []
+    questionsAnswered: [],
+    loadedQuestions: null,
+    currentQuestions: []
 };
+
+// ==================== QUESTION LOADING ====================
+
+async function loadQuestionsFromJSON() {
+    try {
+        const response = await fetch('Questions.json');
+        const data = await response.json();
+        gameState.loadedQuestions = data;
+        return data;
+    } catch (error) {
+        console.error('Error loading questions:', error);
+        return null;
+    }
+}
+
+function getQuestionsForCandidate(candidateId) {
+    if (!gameState.loadedQuestions) return [];
+
+    const candidate = gameState.loadedQuestions.candidates.find(c => c.id === candidateId);
+    return candidate ? candidate.questions : [];
+}
+
+// Convert advisor rating to polling effect
+function getEffectFromRating(rating, isRepublican) {
+    // Base effects: good = helps player, mixed = neutral, bad = hurts player
+    let effect = 0;
+    switch(rating) {
+        case 'good':
+            effect = 2 + Math.random(); // +2 to +3
+            break;
+        case 'mixed':
+            effect = -0.5 + Math.random(); // -0.5 to +0.5
+            break;
+        case 'bad':
+            effect = -2 - Math.random(); // -2 to -3
+            break;
+    }
+
+    // If Republican, positive effect means less Dem margin (more negative)
+    // If Democrat, positive effect means more Dem margin (more positive)
+    return isRepublican ? -effect : effect;
+}
 
 // ==================== GAME INITIALIZATION ====================
 
@@ -722,15 +766,28 @@ function setupEventListeners() {
     document.getElementById('start-btn').addEventListener('click', startGame);
 }
 
-function startGame() {
+async function startGame() {
     // Initialize state polling from scenario
     gameState.statePolling = JSON.parse(JSON.stringify(gameState.selectedScenario.states));
     gameState.currentQuestion = 0;
     gameState.questionsAnswered = [];
 
+    // Load questions from JSON
+    if (!gameState.loadedQuestions) {
+        await loadQuestionsFromJSON();
+    }
+
+    // Get questions for selected candidate
+    const candidateId = gameState.selectedCandidate === 'republican' ? 'bush' : 'gore';
+    gameState.currentQuestions = getQuestionsForCandidate(candidateId);
+
+    // Fallback to built-in questions if JSON loading fails
+    if (gameState.currentQuestions.length === 0) {
+        gameState.currentQuestions = gameState.selectedScenario.questions;
+    }
+
     // Update UI
-    document.getElementById('start-screen').style.display = 'none';
-    document.getElementById('game-screen').style.display = 'block';
+    showScreen('game-screen');
 
     const scenario = gameState.selectedScenario;
     const candidateData = scenario.candidates[gameState.selectedCandidate];
@@ -750,7 +807,7 @@ function startGame() {
 // ==================== QUESTION SYSTEM ====================
 
 function loadQuestion() {
-    const questions = gameState.selectedScenario.questions;
+    const questions = gameState.currentQuestions;
 
     if (gameState.currentQuestion >= questions.length) {
         endGame();
@@ -758,16 +815,29 @@ function loadQuestion() {
     }
 
     const question = questions[gameState.currentQuestion];
+    const isJSONFormat = question.prompt !== undefined;
+
+    // Hide advisor feedback from previous question
+    hideAdvisorFeedback();
 
     document.getElementById('q-number').textContent = `Question ${gameState.currentQuestion + 1}`;
-    document.getElementById('q-topic').textContent = question.topic;
-    document.getElementById('q-text').textContent = question.text;
     document.getElementById('question-progress').textContent = `${gameState.currentQuestion + 1}/${questions.length}`;
+
+    // Handle both JSON format (prompt/choices) and legacy format (topic/text/answers)
+    if (isJSONFormat) {
+        document.getElementById('q-topic').textContent = `Question ${question.order || gameState.currentQuestion + 1}`;
+        document.getElementById('q-text').textContent = question.prompt;
+    } else {
+        document.getElementById('q-topic').textContent = question.topic;
+        document.getElementById('q-text').textContent = question.text;
+    }
 
     const answersContainer = document.getElementById('answers');
     answersContainer.innerHTML = '';
 
-    question.answers.forEach((answer, index) => {
+    const answers = isJSONFormat ? question.choices : question.answers;
+
+    answers.forEach((answer, index) => {
         const btn = document.createElement('button');
         btn.className = 'answer-btn';
         btn.textContent = answer.text;
@@ -777,23 +847,79 @@ function loadQuestion() {
 }
 
 function selectAnswer(answerIndex) {
-    const question = gameState.selectedScenario.questions[gameState.currentQuestion];
-    const answer = question.answers[answerIndex];
+    const question = gameState.currentQuestions[gameState.currentQuestion];
+    const isJSONFormat = question.prompt !== undefined;
+    const answers = isJSONFormat ? question.choices : question.answers;
+    const answer = answers[answerIndex];
 
-    // Apply effects based on player's party
-    applyEffects(answer.effects);
+    const isRepublican = gameState.selectedCandidate === 'republican';
+
+    // Apply effects based on format
+    if (isJSONFormat && answer.advisorRating) {
+        // Use advisor rating to determine effect
+        const effect = getEffectFromRating(answer.advisorRating, isRepublican);
+        applyNationalEffect(effect);
+
+        // Show advisor feedback
+        showAdvisorFeedback(answer.advisorRating, answer.advisorFeedback);
+    } else if (answer.effects) {
+        // Legacy format with explicit effects
+        applyEffects(answer.effects);
+    }
 
     gameState.questionsAnswered.push({
         questionId: question.id,
         answerIndex: answerIndex
     });
 
-    gameState.currentQuestion++;
+    // For JSON format with feedback, wait before moving to next question
+    if (isJSONFormat && answer.advisorFeedback) {
+        // Show feedback for 3 seconds, then move to next question
+        setTimeout(() => {
+            gameState.currentQuestion++;
+            renderStatePolling();
+            updateMapColors();
+            updateEVCounts();
+            loadQuestion();
+        }, 3000);
+    } else {
+        gameState.currentQuestion++;
+        renderStatePolling();
+        updateMapColors();
+        updateEVCounts();
+        loadQuestion();
+    }
+}
 
-    renderStatePolling();
-    updateMapColors();
-    updateEVCounts();
-    loadQuestion();
+// Apply a national effect to all states
+function applyNationalEffect(effect) {
+    for (let state in gameState.statePolling) {
+        const randomFactor = 0.5 + Math.random();
+        gameState.statePolling[state].margin += effect * randomFactor;
+    }
+}
+
+// Show advisor feedback after answer selection
+function showAdvisorFeedback(rating, feedback) {
+    const feedbackContainer = document.getElementById('advisor-feedback');
+    if (!feedbackContainer) return;
+
+    const ratingClass = rating === 'good' ? 'good' : (rating === 'bad' ? 'bad' : 'mixed');
+    const ratingText = rating === 'good' ? 'Good choice!' : (rating === 'bad' ? 'Poor choice...' : 'Mixed results');
+
+    feedbackContainer.innerHTML = `
+        <div class="advisor-rating ${ratingClass}">${ratingText}</div>
+        <div class="advisor-message">${feedback}</div>
+    `;
+    feedbackContainer.classList.remove('hidden');
+}
+
+// Hide advisor feedback
+function hideAdvisorFeedback() {
+    const feedbackContainer = document.getElementById('advisor-feedback');
+    if (feedbackContainer) {
+        feedbackContainer.classList.add('hidden');
+    }
 }
 
 function applyEffects(effects) {
@@ -896,8 +1022,7 @@ function updateEVCounts() {
 // ==================== END GAME ====================
 
 function endGame() {
-    document.getElementById('game-screen').style.display = 'none';
-    document.getElementById('results-screen').style.display = 'block';
+    showScreen('results-screen');
 
     const scenario = gameState.selectedScenario;
 
@@ -966,6 +1091,25 @@ function endGame() {
             div.innerHTML = `${state.name} <span>${state.ev}</span>`;
             stateResultsContainer.appendChild(div);
         });
+}
+
+// ==================== NAVIGATION ====================
+
+function showScreen(screenId) {
+    // Hide all screens
+    const screens = ['main-menu', 'start-screen', 'game-screen', 'results-screen', 'update-log'];
+    screens.forEach(id => {
+        const screen = document.getElementById(id);
+        if (screen) {
+            screen.style.display = 'none';
+        }
+    });
+
+    // Show the requested screen
+    const targetScreen = document.getElementById(screenId);
+    if (targetScreen) {
+        targetScreen.style.display = 'block';
+    }
 }
 
 // ==================== START ====================
