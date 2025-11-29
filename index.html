@@ -43,8 +43,146 @@
             font-style: italic;
         }
 
+        /* Main Menu */
+        #main-menu {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 300px;
+            margin: 40px auto;
+        }
+
+        .menu-btn {
+            background: linear-gradient(145deg, #2d3748, #1a202c);
+            border: 2px solid #4a5568;
+            color: #eee;
+            padding: 18px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .menu-btn:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .menu-btn.primary {
+            background: linear-gradient(145deg, #667eea, #5a67d8);
+            border-color: #667eea;
+        }
+
+        .menu-btn.primary:hover {
+            background: linear-gradient(145deg, #7c8ff0, #667eea);
+        }
+
+        .game-version {
+            color: #4a5568;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        /* Update Log */
+        #update-log {
+            display: none;
+            padding: 30px 20px;
+        }
+
+        .update-log-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .update-log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .update-log-header h2 {
+            font-size: 1.8rem;
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 2px solid #4a5568;
+            color: #a0aec0;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .back-btn:hover {
+            border-color: #667eea;
+            color: #eee;
+        }
+
+        .update-entry {
+            background: #2d3748;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .update-entry h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #f7fafc;
+        }
+
+        .update-entry .update-date {
+            font-size: 0.85rem;
+            color: #a0aec0;
+            margin-bottom: 15px;
+        }
+
+        .update-entry ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .update-entry li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #cbd5e0;
+            font-size: 0.95rem;
+        }
+
+        .update-entry li::before {
+            content: "+";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .update-entry li.fix::before {
+            content: "~";
+            color: #f6e05e;
+        }
+
+        .update-entry li.remove::before {
+            content: "-";
+            color: #fc8181;
+        }
+
         /* Start Screen */
         #start-screen {
+            display: none;
             text-align: center;
             padding: 50px 20px;
         }
@@ -660,9 +798,62 @@
             <p>Navigate pivotal moments in American electoral history</p>
         </header>
 
+        <!-- Main Menu -->
+        <div id="main-menu">
+            <h2>Welcome to the Campaign</h2>
+            <p style="color: #a0aec0; margin-top: 10px;">Experience historic presidential elections from the candidate's perspective</p>
+
+            <div class="menu-buttons">
+                <button class="menu-btn primary" onclick="showScreen('start-screen')">New Campaign</button>
+                <button class="menu-btn" onclick="showScreen('update-log')">Update Log</button>
+            </div>
+
+            <p class="game-version">Version 0.2.0 - 2000 Election</p>
+        </div>
+
+        <!-- Update Log -->
+        <div id="update-log">
+            <div class="update-log-container">
+                <div class="update-log-header">
+                    <h2>Update Log</h2>
+                    <button class="back-btn" onclick="showScreen('main-menu')">Back to Menu</button>
+                </div>
+
+                <div class="update-entry">
+                    <h3>Version 0.2.0</h3>
+                    <div class="update-date">November 2024</div>
+                    <ul>
+                        <li>Added accurate US map with proper state shapes</li>
+                        <li>Implemented interactive state hover with polling details</li>
+                        <li>Added main menu navigation system</li>
+                        <li>Added update log to track changes</li>
+                        <li class="fix">Fixed map coloring to update in real-time</li>
+                        <li>Display vote percentages instead of raw margins</li>
+                    </ul>
+                </div>
+
+                <div class="update-entry">
+                    <h3>Version 0.1.0</h3>
+                    <div class="update-date">November 2024</div>
+                    <ul>
+                        <li>Initial release with 2000 election scenario</li>
+                        <li>Play as Al Gore (Democrat) or George W. Bush (Republican)</li>
+                        <li>25 questions covering key 2000 election issues</li>
+                        <li>State-by-state polling for all 50 states + DC</li>
+                        <li>Electoral vote tracking and results calculation</li>
+                        <li>Regional effects system for answer impacts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <!-- Start Screen -->
         <div id="start-screen">
-            <h2>Select Your Campaign</h2>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <button class="back-btn" onclick="showScreen('main-menu')">Back to Menu</button>
+                <h2 style="flex: 1; text-align: center;">Select Your Campaign</h2>
+                <div style="width: 120px;"></div>
+            </div>
 
             <div class="scenario-select">
                 <div class="scenario-card selected" data-year="2000">
@@ -713,19 +904,8 @@
             <div class="map-section">
                 <h3>Electoral Map</h3>
                 <div class="map-container">
-                    <div class="map-wrapper">
-                        <svg id="us-map" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid meet">
-                            <!-- States will be populated by JavaScript -->
-                        </svg>
-                        <div class="map-legend">
-                            <div class="legend-item"><div class="legend-color safe-dem"></div>Safe Dem</div>
-                            <div class="legend-item"><div class="legend-color lean-dem"></div>Lean Dem</div>
-                            <div class="legend-item"><div class="legend-color tilt-dem"></div>Tilt Dem</div>
-                            <div class="legend-item"><div class="legend-color tossup"></div>Tossup</div>
-                            <div class="legend-item"><div class="legend-color tilt-rep"></div>Tilt Rep</div>
-                            <div class="legend-item"><div class="legend-color lean-rep"></div>Lean Rep</div>
-                            <div class="legend-item"><div class="legend-color safe-rep"></div>Safe Rep</div>
-                        </div>
+                    <div class="map-wrapper" id="map-wrapper">
+                        <!-- SVG loaded dynamically from us.svg -->
                     </div>
                     <div class="state-tooltip hidden" id="state-tooltip">
                         <h4 id="tooltip-state-name">Hover over a state</h4>
@@ -742,6 +922,15 @@
                         </div>
                         <div class="tooltip-status tossup" id="tooltip-status">Tossup</div>
                     </div>
+                </div>
+                <div class="map-legend">
+                    <div class="legend-item"><div class="legend-color safe-dem"></div>Safe Dem</div>
+                    <div class="legend-item"><div class="legend-color lean-dem"></div>Lean Dem</div>
+                    <div class="legend-item"><div class="legend-color tilt-dem"></div>Tilt Dem</div>
+                    <div class="legend-item"><div class="legend-color tossup"></div>Tossup</div>
+                    <div class="legend-item"><div class="legend-color tilt-rep"></div>Tilt Rep</div>
+                    <div class="legend-item"><div class="legend-color lean-rep"></div>Lean Rep</div>
+                    <div class="legend-item"><div class="legend-color safe-rep"></div>Safe Rep</div>
                 </div>
             </div>
 
@@ -795,7 +984,8 @@
                 </div>
             </div>
 
-            <button class="btn" onclick="location.reload()">Play Again</button>
+            <button class="btn" onclick="showScreen('main-menu')">Main Menu</button>
+            <button class="btn" onclick="location.reload()" style="margin-left: 10px;">Play Again</button>
         </div>
     </div>
 

@@ -729,8 +729,7 @@ function startGame() {
     gameState.questionsAnswered = [];
 
     // Update UI
-    document.getElementById('start-screen').style.display = 'none';
-    document.getElementById('game-screen').style.display = 'block';
+    showScreen('game-screen');
 
     const scenario = gameState.selectedScenario;
     const candidateData = scenario.candidates[gameState.selectedCandidate];
@@ -896,8 +895,7 @@ function updateEVCounts() {
 // ==================== END GAME ====================
 
 function endGame() {
-    document.getElementById('game-screen').style.display = 'none';
-    document.getElementById('results-screen').style.display = 'block';
+    showScreen('results-screen');
 
     const scenario = gameState.selectedScenario;
 
@@ -966,6 +964,25 @@ function endGame() {
             div.innerHTML = `${state.name} <span>${state.ev}</span>`;
             stateResultsContainer.appendChild(div);
         });
+}
+
+// ==================== NAVIGATION ====================
+
+function showScreen(screenId) {
+    // Hide all screens
+    const screens = ['main-menu', 'start-screen', 'game-screen', 'results-screen', 'update-log'];
+    screens.forEach(id => {
+        const screen = document.getElementById(id);
+        if (screen) {
+            screen.style.display = 'none';
+        }
+    });
+
+    // Show the requested screen
+    const targetScreen = document.getElementById(screenId);
+    if (targetScreen) {
+        targetScreen.style.display = 'block';
+    }
 }
 
 // ==================== START ====================
