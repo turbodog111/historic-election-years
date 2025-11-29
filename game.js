@@ -678,7 +678,86 @@ let gameState = {
     statePolling: {},
     questionsAnswered: [],
     loadedQuestions: null,
-    currentQuestions: []
+    currentQuestions: [],
+    statesData: null,
+    questionContexts: null
+};
+
+// Question to issue mapping - which issues each question affects
+const questionIssueMapping = {
+    // Bush questions
+    'bush_q04': ['tax_cuts', 'social_security_medicare'],  // Budget surplus
+    'bush_q05': ['education_reform'],  // Education
+    'bush_q07': ['gun_control'],  // Gun control
+    'bush_q08': ['environment_energy'],  // Environment/Kyoto
+    'bush_q12': ['social_security_medicare'],  // Social Security privatization
+    'bush_q16': ['social_security_medicare'],  // Prescription drugs/Medicare
+    // Gore questions
+    'gore_q04': ['tax_cuts'],  // Economic message
+    'gore_q05': ['social_security_medicare'],  // Lockbox
+    'gore_q06': ['social_security_medicare'],  // Healthcare/HMOs
+    'gore_q07': ['gun_control'],  // Gun control
+    'gore_q08': ['environment_energy'],  // Environment
+};
+
+// Answer position mapping - how each answer choice relates to issues
+// Positive = conservative/Republican position, Negative = liberal/Democratic position
+const answerPositions = {
+    // Bush Q4 (Tax cuts vs spending)
+    'bush_q04_A': { tax_cuts: 1, social_security_medicare: 0 },   // Big tax cuts
+    'bush_q04_B': { tax_cuts: -1, social_security_medicare: 1 },  // Debt reduction
+    'bush_q04_C': { tax_cuts: 0, social_security_medicare: 0 },   // Balanced
+    'bush_q04_D': { tax_cuts: -1, social_security_medicare: -1 }, // No tax cuts
+    // Bush Q5 (Education)
+    'bush_q05_A': { education_reform: 1 },   // Federal accountability
+    'bush_q05_B': { education_reform: 1 },   // Strong federal role
+    'bush_q05_C': { education_reform: -1 },  // State control
+    'bush_q05_D': { education_reform: 0 },   // Moderate
+    // Bush Q7 (Gun control)
+    'bush_q07_A': { gun_control: -1 },  // Pro-gun rights
+    'bush_q07_B': { gun_control: 0 },   // Moderate enforcement
+    'bush_q07_C': { gun_control: 1 },   // Support some restrictions
+    'bush_q07_D': { gun_control: -1 },  // Avoid issue
+    // Bush Q8 (Environment)
+    'bush_q08_A': { environment_energy: 1 },   // Pro-environment
+    'bush_q08_B': { environment_energy: -1 },  // Pro-energy production
+    'bush_q08_C': { environment_energy: 0 },   // Balanced
+    'bush_q08_D': { environment_energy: -1 },  // Ignore environment
+    // Bush Q12 (Social Security)
+    'bush_q12_A': { social_security_medicare: 1 },   // Privatization
+    'bush_q12_B': { social_security_medicare: 0 },   // Vague
+    'bush_q12_C': { social_security_medicare: -1 },  // Protect current system
+    'bush_q12_D': { social_security_medicare: 1 },   // Full privatization
+    // Bush Q16 (Prescription drugs)
+    'bush_q16_A': { social_security_medicare: -1 },  // Medicare benefit
+    'bush_q16_B': { social_security_medicare: 1 },   // Market solutions
+    'bush_q16_C': { social_security_medicare: 0 },   // Tax credits
+    'bush_q16_D': { social_security_medicare: 0 },   // Vague
+    // Gore Q4 (Economic message)
+    'gore_q04_A': { tax_cuts: -1 },  // Prosperity narrative
+    'gore_q04_B': { tax_cuts: -1 },  // Populist attack
+    'gore_q04_C': { tax_cuts: 0 },   // Balanced
+    'gore_q04_D': { tax_cuts: 1 },   // Pro-business
+    // Gore Q5 (Social Security lockbox)
+    'gore_q05_A': { social_security_medicare: -1 },  // Strong lockbox
+    'gore_q05_B': { social_security_medicare: -1 },  // Protect benefits
+    'gore_q05_C': { social_security_medicare: 0 },   // Flexible
+    'gore_q05_D': { social_security_medicare: 1 },   // Consider reform
+    // Gore Q6 (Healthcare)
+    'gore_q06_A': { social_security_medicare: -1 },  // Strong patients' rights
+    'gore_q06_B': { social_security_medicare: -1 },  // Moderate reform
+    'gore_q06_C': { social_security_medicare: 0 },   // Ignore
+    'gore_q06_D': { social_security_medicare: 1 },   // Market approach
+    // Gore Q7 (Gun control)
+    'gore_q07_A': { gun_control: 1 },   // Strong gun control
+    'gore_q07_B': { gun_control: 0 },   // Moderate
+    'gore_q07_C': { gun_control: -1 },  // State issue/avoid
+    'gore_q07_D': { gun_control: 1 },   // Bold proposals
+    // Gore Q8 (Environment)
+    'gore_q08_A': { environment_energy: 1 },   // Strong climate action
+    'gore_q08_B': { environment_energy: 0 },   // Moderate
+    'gore_q08_C': { environment_energy: -1 },  // Downplay
+    'gore_q08_D': { environment_energy: 1 },   // Push hard
 };
 
 // ==================== QUESTION LOADING ====================
@@ -691,6 +770,30 @@ async function loadQuestionsFromJSON() {
         return data;
     } catch (error) {
         console.error('Error loading questions:', error);
+        return null;
+    }
+}
+
+async function loadStatesData() {
+    try {
+        const response = await fetch('States.json');
+        const data = await response.json();
+        gameState.statesData = data;
+        return data;
+    } catch (error) {
+        console.error('Error loading states data:', error);
+        return null;
+    }
+}
+
+async function loadQuestionContexts() {
+    try {
+        const response = await fetch('Questions_Contexts.json');
+        const data = await response.json();
+        gameState.questionContexts = data;
+        return data;
+    } catch (error) {
+        console.error('Error loading question contexts:', error);
         return null;
     }
 }
@@ -772,10 +875,12 @@ async function startGame() {
     gameState.currentQuestion = 0;
     gameState.questionsAnswered = [];
 
-    // Load questions from JSON
-    if (!gameState.loadedQuestions) {
-        await loadQuestionsFromJSON();
-    }
+    // Load all data files in parallel
+    await Promise.all([
+        gameState.loadedQuestions ? Promise.resolve() : loadQuestionsFromJSON(),
+        gameState.statesData ? Promise.resolve() : loadStatesData(),
+        gameState.questionContexts ? Promise.resolve() : loadQuestionContexts()
+    ]);
 
     // Get questions for selected candidate
     const candidateId = gameState.selectedCandidate === 'republican' ? 'bush' : 'gore';
@@ -823,10 +928,22 @@ function loadQuestion() {
     document.getElementById('q-number').textContent = `Question ${gameState.currentQuestion + 1}`;
     document.getElementById('question-progress').textContent = `${gameState.currentQuestion + 1}/${questions.length}`;
 
+    // Get context for this question if available
+    const candidateId = gameState.selectedCandidate === 'republican' ? 'bush' : 'gore';
+    let context = '';
+    if (gameState.questionContexts && gameState.questionContexts.contexts && gameState.questionContexts.contexts[candidateId]) {
+        context = gameState.questionContexts.contexts[candidateId][question.id] || '';
+    }
+
     // Handle both JSON format (prompt/choices) and legacy format (topic/text/answers)
     if (isJSONFormat) {
         document.getElementById('q-topic').textContent = `Question ${question.order || gameState.currentQuestion + 1}`;
-        document.getElementById('q-text').textContent = question.prompt;
+        // Combine context with prompt if context exists
+        if (context) {
+            document.getElementById('q-text').innerHTML = `<div class="question-context">${context}</div><div class="question-prompt">${question.prompt}</div>`;
+        } else {
+            document.getElementById('q-text').textContent = question.prompt;
+        }
     } else {
         document.getElementById('q-topic').textContent = question.topic;
         document.getElementById('q-text').textContent = question.text;
@@ -856,9 +973,11 @@ function selectAnswer(answerIndex) {
 
     // Apply effects based on format
     if (isJSONFormat && answer.advisorRating) {
-        // Use advisor rating to determine effect
-        const effect = getEffectFromRating(answer.advisorRating, isRepublican);
-        applyNationalEffect(effect);
+        // Get the answer key for issue lookup (e.g., "bush_q04_A")
+        const answerKey = `${question.id}_${answer.id}`;
+
+        // Apply state-specific effects based on issues this question touches
+        applyIssueBasedEffects(question.id, answerKey, answer.advisorRating, isRepublican);
 
         // Show advisor feedback
         showAdvisorFeedback(answer.advisorRating, answer.advisorFeedback);
@@ -888,6 +1007,104 @@ function selectAnswer(answerIndex) {
         updateMapColors();
         updateEVCounts();
         loadQuestion();
+    }
+}
+
+// Apply effects based on state-specific issue leanings
+function applyIssueBasedEffects(questionId, answerKey, advisorRating, isRepublican) {
+    // Base effect from advisor rating (reduced for harder gameplay)
+    let baseEffect = 0;
+    switch(advisorRating) {
+        case 'good': baseEffect = 1.0 + Math.random() * 0.5; break;
+        case 'mixed': baseEffect = -0.25 + Math.random() * 0.5; break;
+        case 'bad': baseEffect = -1.0 - Math.random() * 0.5; break;
+    }
+
+    // If Republican, positive effect helps them (decreases Dem margin)
+    // If Democrat, positive effect helps them (increases Dem margin)
+    if (isRepublican) {
+        baseEffect = -baseEffect;
+    }
+
+    // Get issues this question affects
+    const issues = questionIssueMapping[questionId] || [];
+    const answerPosition = answerPositions[answerKey] || {};
+
+    // State abbreviation to full name mapping
+    const stateAbbrevToFull = {
+        'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas',
+        'CA': 'California', 'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware',
+        'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho',
+        'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas',
+        'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland',
+        'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi',
+        'MO': 'Missouri', 'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada',
+        'NH': 'New Hampshire', 'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York',
+        'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma',
+        'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina',
+        'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah',
+        'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia',
+        'WI': 'Wisconsin', 'WY': 'Wyoming', 'DC': 'District of Columbia'
+    };
+
+    // Apply effects to each state
+    for (let stateName in gameState.statePolling) {
+        let stateEffect = baseEffect;
+
+        // If this question has issue mappings, apply state-specific modifiers
+        if (issues.length > 0 && gameState.statesData && gameState.statesData.states) {
+            // Find state abbreviation
+            const stateAbbrev = Object.keys(stateAbbrevToFull).find(abbr => stateAbbrevToFull[abbr] === stateName);
+            const stateIssueData = stateAbbrev ? gameState.statesData.states[stateAbbrev] : null;
+
+            if (stateIssueData) {
+                let issueModifier = 0;
+                let issueCount = 0;
+
+                for (const issue of issues) {
+                    const stateLean = stateIssueData[issue] || 0;  // -1, 0, or 1
+                    const answerLean = answerPosition[issue] || 0;  // -1, 0, or 1
+
+                    // If state lean matches answer lean, bonus effect
+                    // If they oppose, penalty
+                    // stateLean: 1 = conservative, -1 = liberal
+                    // answerLean: 1 = conservative, -1 = liberal
+
+                    // Calculate alignment
+                    // If both are same sign (or either is 0), they align
+                    const alignment = stateLean * answerLean;  // 1 if same, -1 if opposite, 0 if neutral
+
+                    // Modifier: positive alignment = answer resonates with state
+                    // For Republican: conservative answer (answerLean=1) in conservative state (stateLean=1) = +1 alignment = good
+                    // For Democrat: liberal answer (answerLean=-1) in liberal state (stateLean=-1) = +1 alignment = good
+
+                    // Adjust based on party
+                    let effectMod = 0;
+                    if (isRepublican) {
+                        // Republican benefits when conservative answers match conservative states
+                        // alignment of 1 = good for Rep if answerLean is conservative
+                        effectMod = alignment * 0.8;  // +0.8 if aligned, -0.8 if opposed
+                    } else {
+                        // Democrat benefits when liberal answers match liberal states
+                        // But stateLean and answerLean are coded where 1=conservative
+                        // So Democrat with liberal answer (answerLean=-1) in liberal state (stateLean=-1) = alignment of +1
+                        effectMod = alignment * 0.8;
+                    }
+
+                    issueModifier += effectMod;
+                    issueCount++;
+                }
+
+                if (issueCount > 0) {
+                    // Average the issue modifiers and add to state effect
+                    stateEffect += (issueModifier / issueCount);
+                }
+            }
+        }
+
+        // Apply randomness and update state margin
+        const randomFactor = 0.7 + Math.random() * 0.6;
+        gameState.statePolling[stateName].margin += stateEffect * randomFactor;
     }
 }
 
@@ -972,19 +1189,33 @@ function renderStatePolling() {
     sortedStates.forEach(([state, data]) => {
         const margin = data.margin;
         const pct = marginToPercentages(margin);
-        let stateClass = 'tossup';
-        let marginClass = 'tossup';
 
-        if (margin > 5) {
-            stateClass = 'dem';
+        // Determine classification - no more tossups
+        // Close states (<3%) get special "tilt" class
+        // Lean states (3-8%) get regular coloring
+        // Safe states (>8%) get strong coloring
+        let stateClass, marginClass;
+
+        if (margin >= 0) {
+            // Democrat leading
             marginClass = 'dem';
-        } else if (margin < -5) {
-            stateClass = 'rep';
+            if (margin < 3) {
+                stateClass = 'tilt-dem';  // Very close
+            } else if (margin < 8) {
+                stateClass = 'lean-dem';  // Leaning
+            } else {
+                stateClass = 'safe-dem';  // Safe
+            }
+        } else {
+            // Republican leading
             marginClass = 'rep';
-        } else if (margin > 0) {
-            marginClass = 'dem';
-        } else if (margin < 0) {
-            marginClass = 'rep';
+            if (margin > -3) {
+                stateClass = 'tilt-rep';  // Very close
+            } else if (margin > -8) {
+                stateClass = 'lean-rep';  // Leaning
+            } else {
+                stateClass = 'safe-rep';  // Safe
+            }
         }
 
         const row = document.createElement('div');
@@ -1001,22 +1232,63 @@ function renderStatePolling() {
 function updateEVCounts() {
     let demEV = 0;
     let repEV = 0;
-    let tossupEV = 0;
+    let demLeaning = 0;  // Close states leaning Dem
+    let repLeaning = 0;  // Close states leaning Rep
 
     for (let state in gameState.statePolling) {
         const data = gameState.statePolling[state];
-        if (data.margin > 5) {
+        // No more tossups - assign based on who is leading
+        if (data.margin >= 0) {
             demEV += data.ev;
-        } else if (data.margin < -5) {
-            repEV += data.ev;
+            if (Math.abs(data.margin) < 3) {
+                demLeaning += data.ev;  // Very close race
+            }
         } else {
-            tossupEV += data.ev;
+            repEV += data.ev;
+            if (Math.abs(data.margin) < 3) {
+                repLeaning += data.ev;  // Very close race
+            }
         }
     }
 
     document.getElementById('dem-ev').textContent = demEV;
     document.getElementById('rep-ev').textContent = repEV;
-    document.getElementById('tossup-ev').textContent = tossupEV;
+
+    // Update the tossup display to show "Close" EVs instead
+    const tossupEl = document.getElementById('tossup-ev');
+    const tossupLabel = document.querySelector('#tossup-ev + .stat-label, .stat:has(#tossup-ev) .stat-label');
+    if (tossupEl) {
+        tossupEl.textContent = demLeaning + repLeaning;
+    }
+
+    // Update the projected winner indicator
+    updateProjectedWinner(demEV, repEV);
+}
+
+function updateProjectedWinner(demEV, repEV) {
+    const demEvEl = document.getElementById('dem-ev');
+    const repEvEl = document.getElementById('rep-ev');
+    const scenario = gameState.selectedScenario;
+
+    // Add visual indicator for who is projected to win
+    if (demEvEl && repEvEl) {
+        demEvEl.classList.remove('winning', 'losing');
+        repEvEl.classList.remove('winning', 'losing');
+
+        if (demEV >= 270) {
+            demEvEl.classList.add('winning');
+            repEvEl.classList.add('losing');
+        } else if (repEV >= 270) {
+            repEvEl.classList.add('winning');
+            demEvEl.classList.add('losing');
+        } else if (demEV > repEV) {
+            demEvEl.classList.add('leading');
+            repEvEl.classList.remove('leading');
+        } else if (repEV > demEV) {
+            repEvEl.classList.add('leading');
+            demEvEl.classList.remove('leading');
+        }
+    }
 }
 
 // ==================== END GAME ====================
