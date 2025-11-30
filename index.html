@@ -605,6 +605,7 @@
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 25px;
+            position: relative;
         }
 
         .map-section h3 {
@@ -724,9 +725,153 @@
             color: #fc8181;
         }
 
-        .tooltip-status.tossup {
+        .tooltip-status.tossup,
+        .tooltip-status.tilt-dem,
+        .tooltip-status.tilt-rep {
             background: rgba(214, 158, 46, 0.2);
             color: #f6e05e;
+        }
+
+        /* State Info Panel (click to open) */
+        .state-info-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 280px;
+            background: #1a202c;
+            border: 2px solid #4a5568;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 100;
+            display: none;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .state-info-panel.visible {
+            display: block;
+        }
+
+        .state-info-panel h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #f7fafc;
+        }
+
+        .state-info-panel .close-panel-btn {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            background: none;
+            border: none;
+            color: #a0aec0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .state-info-panel .close-panel-btn:hover {
+            color: #fff;
+        }
+
+        .state-info-panel .panel-ev {
+            color: #a0aec0;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .state-info-panel .panel-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .state-info-panel .panel-status.dem { background: rgba(49, 130, 206, 0.3); color: #63b3ed; }
+        .state-info-panel .panel-status.rep { background: rgba(229, 62, 62, 0.3); color: #fc8181; }
+        .state-info-panel .panel-status.tilt-dem { background: rgba(49, 130, 206, 0.2); color: #93c5fd; }
+        .state-info-panel .panel-status.tilt-rep { background: rgba(229, 62, 62, 0.2); color: #fca5a5; }
+
+        .state-info-panel .panel-polling {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .state-info-panel .panel-candidate {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .state-info-panel .panel-candidate.dem {
+            background: rgba(49, 130, 206, 0.2);
+            border-left: 3px solid #3182ce;
+        }
+
+        .state-info-panel .panel-candidate.rep {
+            background: rgba(229, 62, 62, 0.2);
+            border-left: 3px solid #e53e3e;
+        }
+
+        .state-info-panel .panel-candidate .pct {
+            font-weight: bold;
+        }
+
+        .state-info-panel .panel-candidate.dem .pct { color: #63b3ed; }
+        .state-info-panel .panel-candidate.rep .pct { color: #fc8181; }
+
+        .state-info-panel .state-issues {
+            border-top: 1px solid #4a5568;
+            padding-top: 12px;
+        }
+
+        .state-info-panel .state-issues h5 {
+            font-size: 0.85rem;
+            color: #a0aec0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .state-info-panel .issue-row {
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            margin-bottom: 6px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .state-info-panel .issue-row.conservative {
+            background: rgba(229, 62, 62, 0.15);
+            border-left: 3px solid #ef4444;
+        }
+
+        .state-info-panel .issue-row.liberal {
+            background: rgba(49, 130, 206, 0.15);
+            border-left: 3px solid #3b82f6;
+        }
+
+        .state-info-panel .issue-row.neutral {
+            background: rgba(160, 174, 192, 0.15);
+            border-left: 3px solid #a0aec0;
+        }
+
+        .state-info-panel .issue-label {
+            font-weight: bold;
+            color: #f7fafc;
+            margin-bottom: 2px;
+        }
+
+        .state-info-panel .issue-value {
+            color: #a0aec0;
+            font-size: 0.8rem;
         }
 
         .map-legend {
@@ -902,7 +1047,7 @@
                 <button class="menu-btn" onclick="showScreen('update-log')">Update Log</button>
             </div>
 
-            <p class="game-version">Version 0.4.0 - 2000 Election</p>
+            <p class="game-version">Version 0.5.0 - 2000 Election</p>
         </div>
 
         <!-- Update Log -->
@@ -911,6 +1056,20 @@
                 <div class="update-log-header">
                     <h2>Update Log</h2>
                     <button class="back-btn" onclick="showScreen('main-menu')">Back to Menu</button>
+                </div>
+
+                <div class="update-entry">
+                    <h3>Version 0.5.0</h3>
+                    <div class="update-date">November 2024</div>
+                    <ul>
+                        <li>Click any state to view detailed info panel with issue positions</li>
+                        <li>Added question weights - major policy questions have more impact</li>
+                        <li>Regional trade-offs - answers now help some regions while hurting others</li>
+                        <li class="fix">Fixed map colors - no more purple, uses light blue/red for tilt states</li>
+                        <li>Each state shows its stance on all 5 key 2000 election issues</li>
+                        <li>Gun control in South helps with gun rights voters but hurts in Northeast</li>
+                        <li>Environment answers create Pacific vs. Mountain/South trade-offs</li>
+                    </ul>
                 </div>
 
                 <div class="update-entry">
