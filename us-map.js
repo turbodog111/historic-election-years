@@ -25,13 +25,15 @@ for (const [abbr, name] of Object.entries(stateNames)) {
 }
 
 // Color scale for margins (Dem positive, Rep negative)
+// NO PURPLE - tilt states get light blue or light red
 function getStateColor(margin) {
     if (margin >= 15) return "#1e40af";      // Safe Dem (dark blue)
-    if (margin >= 8) return "#3b82f6";       // Lean Dem (blue)
-    if (margin >= 3) return "#93c5fd";       // Tilt Dem (light blue)
-    if (margin > -3) return "#a855f7";       // Tossup (purple)
-    if (margin > -8) return "#fca5a5";       // Tilt Rep (light red)
-    if (margin > -15) return "#ef4444";      // Lean Rep (red)
+    if (margin >= 8) return "#3b82f6";       // Likely Dem (blue)
+    if (margin >= 3) return "#60a5fa";       // Lean Dem (medium blue)
+    if (margin >= 0) return "#bfdbfe";       // Tilt Dem (very light blue)
+    if (margin >= -3) return "#fecaca";      // Tilt Rep (very light red)
+    if (margin >= -8) return "#f87171";      // Lean Rep (medium red)
+    if (margin >= -15) return "#ef4444";     // Likely Rep (red)
     return "#991b1b";                         // Safe Rep (dark red)
 }
 
@@ -48,14 +50,15 @@ function marginToPercentages(margin) {
     };
 }
 
-// Get status text based on margin
+// Get status text based on margin - no more "Tossup"
 function getStatusText(margin) {
     if (margin >= 15) return { text: "Safe Democrat", class: "dem" };
     if (margin >= 8) return { text: "Likely Democrat", class: "dem" };
     if (margin >= 3) return { text: "Lean Democrat", class: "dem" };
-    if (margin > -3) return { text: "Tossup", class: "tossup" };
-    if (margin > -8) return { text: "Lean Republican", class: "rep" };
-    if (margin > -15) return { text: "Likely Republican", class: "rep" };
+    if (margin >= 0) return { text: "Tilt Democrat", class: "tilt-dem" };
+    if (margin >= -3) return { text: "Tilt Republican", class: "tilt-rep" };
+    if (margin >= -8) return { text: "Lean Republican", class: "rep" };
+    if (margin >= -15) return { text: "Likely Republican", class: "rep" };
     return { text: "Safe Republican", class: "rep" };
 }
 
@@ -158,10 +161,93 @@ function handleStateLeave() {
     }
 }
 
-// Handle state click
+// Handle state click - show detailed state info panel
 function handleStateClick(stateAbbr) {
     const stateName = stateNames[stateAbbr];
-    console.log(`Clicked: ${stateName} (${stateAbbr})`);
+    if (!stateName || !gameState.statePolling[stateName]) return;
+
+    const stateData = gameState.statePolling[stateName];
+    const percentages = marginToPercentages(stateData.margin);
+    const status = getStatusText(stateData.margin);
+    const scenario = gameState.selectedScenario;
+
+    // Get state's issue positions from States.json
+    let issueData = null;
+    if (gameState.statesData && gameState.statesData.states && gameState.statesData.states[stateAbbr]) {
+        issueData = gameState.statesData.states[stateAbbr];
+    }
+
+    // Create or update the state info panel
+    let panel = document.getElementById('state-info-panel');
+    if (!panel) {
+        panel = document.createElement('div');
+        panel.id = 'state-info-panel';
+        panel.className = 'state-info-panel';
+        document.querySelector('.map-section').appendChild(panel);
+    }
+
+    // Issue names and descriptions
+    const issueLabels = {
+        'tax_cuts': 'Tax Cuts',
+        'social_security_medicare': 'Social Security Reform',
+        'education_reform': 'Federal Education Role',
+        'gun_control': 'Gun Control',
+        'environment_energy': 'Environment vs Energy'
+    };
+
+    const issueDescriptions = {
+        'tax_cuts': { '-1': 'Prefers spending/debt reduction', '0': 'Mixed/divided', '1': 'Supports large tax cuts' },
+        'social_security_medicare': { '-1': 'Protect existing guarantees', '0': 'Pragmatic on reform', '1': 'Open to privatization' },
+        'education_reform': { '-1': 'Prefers local control', '0': 'Mixed views', '1': 'Supports federal standards' },
+        'gun_control': { '-1': 'Pro-gun rights', '0': 'Mixed views', '1': 'Supports stricter laws' },
+        'environment_energy': { '-1': 'Pro-energy production', '0': 'Balanced approach', '1': 'Pro-environment' }
+    };
+
+    // Build issue HTML
+    let issueHTML = '';
+    if (issueData) {
+        issueHTML = '<div class="state-issues"><h5>Voter Priorities</h5>';
+        for (const [issue, label] of Object.entries(issueLabels)) {
+            const value = issueData[issue] || 0;
+            const desc = issueDescriptions[issue][String(value)];
+            const leanClass = value === 1 ? 'conservative' : (value === -1 ? 'liberal' : 'neutral');
+            issueHTML += `
+                <div class="issue-row ${leanClass}">
+                    <span class="issue-label">${label}</span>
+                    <span class="issue-value">${desc}</span>
+                </div>
+            `;
+        }
+        issueHTML += '</div>';
+    }
+
+    panel.innerHTML = `
+        <button class="close-panel-btn" onclick="closeStateInfoPanel()">&times;</button>
+        <h4>${stateName}</h4>
+        <div class="panel-ev">${stateData.ev} Electoral Votes</div>
+        <div class="panel-status ${status.class}">${status.text}</div>
+        <div class="panel-polling">
+            <div class="panel-candidate dem">
+                <span>${scenario.candidates.democrat.name.split(' ').pop()}</span>
+                <span class="pct">${percentages.dem}%</span>
+            </div>
+            <div class="panel-candidate rep">
+                <span>${scenario.candidates.republican.name.split(' ').pop()}</span>
+                <span class="pct">${percentages.rep}%</span>
+            </div>
+        </div>
+        ${issueHTML}
+    `;
+
+    panel.classList.add('visible');
+}
+
+// Close the state info panel
+function closeStateInfoPanel() {
+    const panel = document.getElementById('state-info-panel');
+    if (panel) {
+        panel.classList.remove('visible');
+    }
 }
 
 // Update map colors based on current polling

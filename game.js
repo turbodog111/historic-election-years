@@ -683,22 +683,84 @@ let gameState = {
     questionContexts: null
 };
 
-// Question to issue mapping - which issues each question affects
-const questionIssueMapping = {
+// Question to issue mapping with weights and regional effects
+// weight: how impactful this question is (1.0 = normal, 1.5 = major, 0.7 = minor)
+// issues: which issues this question affects
+// regions: specific regional bonuses/penalties for this question
+const questionConfig = {
     // Bush questions
-    'bush_q04': ['tax_cuts', 'social_security_medicare'],  // Budget surplus
-    'bush_q05': ['education_reform'],  // Education
-    'bush_q07': ['gun_control'],  // Gun control
-    'bush_q08': ['environment_energy'],  // Environment/Kyoto
-    'bush_q12': ['social_security_medicare'],  // Social Security privatization
-    'bush_q16': ['social_security_medicare'],  // Prescription drugs/Medicare
+    'bush_q01': { weight: 1.0, issues: [], regions: { midwest: 0.5, south: 0.3 } },  // Compassionate conservatism
+    'bush_q02': { weight: 0.8, issues: [], regions: { northeast: 0.3, midwest: 0.2 } },  // Campaign style
+    'bush_q03': { weight: 0.7, issues: [], regions: { south: 0.4 } },  // Negative tactics
+    'bush_q04': { weight: 1.5, issues: ['tax_cuts', 'social_security_medicare'], regions: { south: 0.4, midwest: 0.3, northeast: -0.3 } },  // Budget surplus - MAJOR
+    'bush_q05': { weight: 1.2, issues: ['education_reform'], regions: { midwest: 0.4, south: -0.2 } },  // Education
+    'bush_q06': { weight: 0.9, issues: [], regions: { south: 0.5, midwest: 0.3, pacific: -0.3 } },  // Faith-based
+    'bush_q07': { weight: 1.3, issues: ['gun_control'], regions: { south: 0.5, mountain: 0.4, northeast: -0.4, pacific: -0.3 } },  // Gun control - affects regions differently
+    'bush_q08': { weight: 1.4, issues: ['environment_energy'], regions: { pacific: -0.5, northeast: -0.3, mountain: 0.4, south: 0.3 } },  // Environment - regional trade-off
+    'bush_q09': { weight: 1.0, issues: [], regions: { florida: 0.3, southwest: 0.3 } },  // Outreach
+    'bush_q10': { weight: 1.1, issues: [], regions: {} },  // VP pick
+    'bush_q11': { weight: 0.8, issues: [], regions: { northeast: 0.2 } },  // Debate prep
+    'bush_q12': { weight: 1.5, issues: ['social_security_medicare'], regions: { florida: -0.5, northeast: -0.3, mountain: 0.3 } },  // Social Security - MAJOR, hurts in FL
+    'bush_q13': { weight: 1.2, issues: [], regions: { midwest: -0.3, south: -0.2 } },  // DUI revelation
+    'bush_q14': { weight: 0.7, issues: [], regions: { south: 0.2 } },  // HW Bush as surrogate
+    'bush_q15': { weight: 0.9, issues: [], regions: { midwest: 0.2, south: 0.2 } },  // Convention speech tone
+    'bush_q16': { weight: 1.3, issues: ['social_security_medicare'], regions: { florida: 0.5, northeast: 0.2 } },  // Prescription drugs
+    'bush_q17': { weight: 0.6, issues: [], regions: { pacific: 0.2, northeast: 0.1 } },  // Nader
+    'bush_q18': { weight: 1.1, issues: [], regions: {} },  // Campaign strategy
+    'bush_q19': { weight: 1.0, issues: [], regions: { south: 0.3, midwest: 0.2 } },  // GOTV
+    'bush_q20': { weight: 0.5, issues: [], regions: {} },  // Election night
+    'bush_q21': { weight: 0.6, issues: [], regions: { florida: 0.2 } },  // Recount
+    'bush_q22': { weight: 0.5, issues: [], regions: {} },  // Recount tone
+    'bush_q23': { weight: 0.5, issues: [], regions: {} },  // Supreme Court
+    'bush_q24': { weight: 0.6, issues: [], regions: {} },  // Cabinet
+    'bush_q25': { weight: 0.7, issues: [], regions: {} },  // Address
     // Gore questions
-    'gore_q04': ['tax_cuts'],  // Economic message
-    'gore_q05': ['social_security_medicare'],  // Lockbox
-    'gore_q06': ['social_security_medicare'],  // Healthcare/HMOs
-    'gore_q07': ['gun_control'],  // Gun control
-    'gore_q08': ['environment_energy'],  // Environment
+    'gore_q01': { weight: 1.0, issues: [], regions: { south: -0.3, northeast: 0.3 } },  // Clinton association
+    'gore_q02': { weight: 0.7, issues: [], regions: { northeast: 0.2 } },  // Bradley primary
+    'gore_q03': { weight: 0.8, issues: [], regions: { midwest: 0.2, south: 0.1 } },  // Image makeover
+    'gore_q04': { weight: 1.4, issues: ['tax_cuts'], regions: { midwest: 0.4, rust_belt: 0.3, mountain: -0.3 } },  // Economic message
+    'gore_q05': { weight: 1.3, issues: ['social_security_medicare'], regions: { florida: 0.5, northeast: 0.3, mountain: -0.2 } },  // Lockbox
+    'gore_q06': { weight: 1.2, issues: ['social_security_medicare'], regions: { midwest: 0.3, rust_belt: 0.3, south: -0.2 } },  // Healthcare
+    'gore_q07': { weight: 1.4, issues: ['gun_control'], regions: { northeast: 0.4, pacific: 0.3, south: -0.5, mountain: -0.4 } },  // Gun control - big trade-off
+    'gore_q08': { weight: 1.5, issues: ['environment_energy'], regions: { pacific: 0.5, northeast: 0.3, mountain: -0.4, south: -0.3 } },  // Environment - MAJOR trade-off
+    'gore_q09': { weight: 1.1, issues: [], regions: { florida: -0.4 } },  // Elian Gonzalez
+    'gore_q10': { weight: 0.6, issues: [], regions: {} },  // Internet comment
+    'gore_q11': { weight: 1.0, issues: [], regions: {} },  // VP pick
+    'gore_q12': { weight: 0.7, issues: [], regions: {} },  // Debate format
+    'gore_q13': { weight: 0.9, issues: [], regions: { northeast: 0.2, midwest: 0.2 } },  // Debate persona
+    'gore_q14': { weight: 0.8, issues: [], regions: { pacific: 0.2, northeast: 0.1 } },  // Nader voters
+    'gore_q15': { weight: 1.0, issues: [], regions: {} },  // Battleground strategy
+    'gore_q16': { weight: 1.0, issues: [], regions: { rust_belt: 0.3, south: 0.2 } },  // GOTV
+    'gore_q17': { weight: 0.5, issues: [], regions: {} },  // Election night
+    'gore_q18': { weight: 0.6, issues: [], regions: { florida: 0.2 } },  // Recount strategy
+    'gore_q19': { weight: 0.5, issues: [], regions: {} },  // Recount framing
+    'gore_q20': { weight: 0.5, issues: [], regions: {} },  // Supreme Court response
+    'gore_q21': { weight: 0.4, issues: [], regions: {} },  // Future
+    'gore_q22': { weight: 0.6, issues: [], regions: { south: 0.2 } },  // Clinton usage
+    'gore_q23': { weight: 0.7, issues: [], regions: { midwest: 0.2 } },  // Image
+    'gore_q24': { weight: 0.5, issues: [], regions: {} },  // Finance controversies
+    'gore_q25': { weight: 0.9, issues: [], regions: { rust_belt: 0.3, midwest: 0.2 } },  // Overall theme
 };
+
+// Regional groupings of states for trade-off effects
+const regions = {
+    'northeast': ['Connecticut', 'Delaware', 'Maine', 'Maryland', 'Massachusetts', 'New Hampshire', 'New Jersey', 'New York', 'Pennsylvania', 'Rhode Island', 'Vermont'],
+    'south': ['Alabama', 'Arkansas', 'Georgia', 'Kentucky', 'Louisiana', 'Mississippi', 'North Carolina', 'Oklahoma', 'South Carolina', 'Tennessee', 'Texas', 'Virginia', 'West Virginia'],
+    'midwest': ['Illinois', 'Indiana', 'Iowa', 'Kansas', 'Michigan', 'Minnesota', 'Missouri', 'Nebraska', 'North Dakota', 'Ohio', 'South Dakota', 'Wisconsin'],
+    'mountain': ['Arizona', 'Colorado', 'Idaho', 'Montana', 'Nevada', 'New Mexico', 'Utah', 'Wyoming'],
+    'pacific': ['California', 'Hawaii', 'Oregon', 'Washington', 'Alaska'],
+    'florida': ['Florida'],
+    'southwest': ['Arizona', 'New Mexico', 'Nevada', 'Texas'],
+    'rust_belt': ['Michigan', 'Ohio', 'Pennsylvania', 'Wisconsin', 'Indiana']
+};
+
+// Legacy mapping for backwards compatibility
+const questionIssueMapping = {};
+for (const [qId, config] of Object.entries(questionConfig)) {
+    if (config.issues && config.issues.length > 0) {
+        questionIssueMapping[qId] = config.issues;
+    }
+}
 
 // Answer position mapping - how each answer choice relates to issues
 // Positive = conservative/Republican position, Negative = liberal/Democratic position
@@ -1010,14 +1072,19 @@ function selectAnswer(answerIndex) {
     }
 }
 
-// Apply effects based on state-specific issue leanings
+// Apply effects based on state-specific issue leanings with weights and regional trade-offs
 function applyIssueBasedEffects(questionId, answerKey, advisorRating, isRepublican) {
-    // Base effect from advisor rating (reduced for harder gameplay)
+    // Get question config for weight and regional effects
+    const config = questionConfig[questionId] || { weight: 1.0, issues: [], regions: {} };
+    const weight = config.weight;
+    const regionalEffects = config.regions || {};
+
+    // Base effect from advisor rating (scaled by question weight)
     let baseEffect = 0;
     switch(advisorRating) {
-        case 'good': baseEffect = 1.0 + Math.random() * 0.5; break;
-        case 'mixed': baseEffect = -0.25 + Math.random() * 0.5; break;
-        case 'bad': baseEffect = -1.0 - Math.random() * 0.5; break;
+        case 'good': baseEffect = (0.8 + Math.random() * 0.4) * weight; break;
+        case 'mixed': baseEffect = (-0.2 + Math.random() * 0.4) * weight; break;
+        case 'bad': baseEffect = (-0.8 - Math.random() * 0.4) * weight; break;
     }
 
     // If Republican, positive effect helps them (decreases Dem margin)
@@ -1027,7 +1094,7 @@ function applyIssueBasedEffects(questionId, answerKey, advisorRating, isRepublic
     }
 
     // Get issues this question affects
-    const issues = questionIssueMapping[questionId] || [];
+    const issues = config.issues || [];
     const answerPosition = answerPositions[answerKey] || {};
 
     // State abbreviation to full name mapping
@@ -1050,11 +1117,37 @@ function applyIssueBasedEffects(questionId, answerKey, advisorRating, isRepublic
     // Apply effects to each state
     for (let stateName in gameState.statePolling) {
         let stateEffect = baseEffect;
+        const stateAbbrev = Object.keys(stateAbbrevToFull).find(abbr => stateAbbrevToFull[abbr] === stateName);
+
+        // Apply regional effects (trade-offs between regions)
+        let regionMod = 0;
+        for (const [region, effect] of Object.entries(regionalEffects)) {
+            const regionStates = regions[region] || [];
+            if (regionStates.includes(stateName)) {
+                // Regional effect: positive helps player, negative hurts player
+                // Effect is already in terms of the answer being "good" for that region
+                // If good answer + positive region = bonus
+                // If good answer + negative region = penalty (trade-off!)
+                let regionalBonus = effect;
+                if (advisorRating === 'bad') {
+                    regionalBonus = -regionalBonus; // Bad answer reverses regional effect
+                } else if (advisorRating === 'mixed') {
+                    regionalBonus *= 0.5; // Mixed answer has reduced regional effect
+                }
+                // Flip for Republican
+                if (isRepublican) {
+                    regionMod -= regionalBonus;
+                } else {
+                    regionMod += regionalBonus;
+                }
+                break; // Only apply one region per state
+            }
+        }
+
+        stateEffect += regionMod;
 
         // If this question has issue mappings, apply state-specific modifiers
         if (issues.length > 0 && gameState.statesData && gameState.statesData.states) {
-            // Find state abbreviation
-            const stateAbbrev = Object.keys(stateAbbrevToFull).find(abbr => stateAbbrevToFull[abbr] === stateName);
             const stateIssueData = stateAbbrev ? gameState.statesData.states[stateAbbrev] : null;
 
             if (stateIssueData) {
@@ -1065,30 +1158,15 @@ function applyIssueBasedEffects(questionId, answerKey, advisorRating, isRepublic
                     const stateLean = stateIssueData[issue] || 0;  // -1, 0, or 1
                     const answerLean = answerPosition[issue] || 0;  // -1, 0, or 1
 
-                    // If state lean matches answer lean, bonus effect
-                    // If they oppose, penalty
-                    // stateLean: 1 = conservative, -1 = liberal
-                    // answerLean: 1 = conservative, -1 = liberal
+                    // Calculate alignment: positive = answer matches state preference
+                    const alignment = stateLean * answerLean;
 
-                    // Calculate alignment
-                    // If both are same sign (or either is 0), they align
-                    const alignment = stateLean * answerLean;  // 1 if same, -1 if opposite, 0 if neutral
-
-                    // Modifier: positive alignment = answer resonates with state
-                    // For Republican: conservative answer (answerLean=1) in conservative state (stateLean=1) = +1 alignment = good
-                    // For Democrat: liberal answer (answerLean=-1) in liberal state (stateLean=-1) = +1 alignment = good
-
-                    // Adjust based on party
+                    // Modifier based on alignment
                     let effectMod = 0;
                     if (isRepublican) {
-                        // Republican benefits when conservative answers match conservative states
-                        // alignment of 1 = good for Rep if answerLean is conservative
-                        effectMod = alignment * 0.8;  // +0.8 if aligned, -0.8 if opposed
+                        effectMod = alignment * 0.6;
                     } else {
-                        // Democrat benefits when liberal answers match liberal states
-                        // But stateLean and answerLean are coded where 1=conservative
-                        // So Democrat with liberal answer (answerLean=-1) in liberal state (stateLean=-1) = alignment of +1
-                        effectMod = alignment * 0.8;
+                        effectMod = alignment * 0.6;
                     }
 
                     issueModifier += effectMod;
@@ -1096,7 +1174,6 @@ function applyIssueBasedEffects(questionId, answerKey, advisorRating, isRepublic
                 }
 
                 if (issueCount > 0) {
-                    // Average the issue modifiers and add to state effect
                     stateEffect += (issueModifier / issueCount);
                 }
             }
