@@ -1464,3 +1464,6 @@ function showScreen(screenId) {
 // ==================== START ====================
 
 document.addEventListener('DOMContentLoaded', initGame);
+
+// Expose functions to global scope for HTML onclick handlers
+window.showScreen = showScreen;
