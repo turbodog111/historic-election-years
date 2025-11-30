@@ -656,19 +656,6 @@ const scenarios = {
     }
 };
 
-// ==================== REGION DEFINITIONS ====================
-
-const regions = {
-    northeast: ["Connecticut", "Delaware", "Maine", "Maryland", "Massachusetts", "New Hampshire", "New Jersey", "New York", "Pennsylvania", "Rhode Island", "Vermont"],
-    south: ["Alabama", "Arkansas", "Georgia", "Kentucky", "Louisiana", "Mississippi", "North Carolina", "South Carolina", "Tennessee", "Texas", "Virginia", "West Virginia"],
-    midwest: ["Illinois", "Indiana", "Iowa", "Kansas", "Michigan", "Minnesota", "Missouri", "Nebraska", "North Dakota", "Ohio", "South Dakota", "Wisconsin"],
-    mountain: ["Arizona", "Colorado", "Idaho", "Montana", "Nevada", "New Mexico", "Utah", "Wyoming"],
-    pacific: ["Alaska", "California", "Hawaii", "Oregon", "Washington"],
-    florida: ["Florida"],
-    rust_belt: ["Michigan", "Ohio", "Pennsylvania", "Wisconsin"],
-    southwest: ["Arizona", "New Mexico", "Nevada"]
-};
-
 // ==================== GAME STATE ====================
 
 let gameState = {
