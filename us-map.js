@@ -266,3 +266,6 @@ function updateMapColors() {
         }
     }
 }
+
+// Expose function to global scope for HTML onclick handlers
+window.closeStateInfoPanel = closeStateInfoPanel;
